@@ -62,73 +62,85 @@
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
     }
 
-    /* ── COUNTDOWN ── */
+    /* ── COUNTDOWN COPA PISTON ── */
     .countdown-section {
       background: var(--bg-main);
-      padding: 1.5rem 1rem;
+      padding: 1.25rem 0.85rem;
       text-align: center;
+    }
+
+    .countdown-card-wrapper {
+      background: rgba(18, 6, 8, 0.9);
+      border: 2.5px solid var(--racing-red);
+      border-radius: 20px;
+      padding: 1.25rem 0.75rem;
+      box-shadow: var(--shadow-red);
     }
 
     .countdown-section h2 {
       font-family: 'Racing Sans One', cursive;
+      font-style: italic;
       font-size: 13px;
-      letter-spacing: 2px;
+      letter-spacing: 1.5px;
       text-transform: uppercase;
       color: var(--racing-yellow);
       margin-bottom: 1rem;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 10px;
+      gap: 8px;
+      text-shadow: 0 0 10px rgba(255, 204, 0, 0.5);
     }
 
     .countdown-section h2::before,
     .countdown-section h2::after {
       content: '';
       flex: 1;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(255, 204, 0, 0.4), transparent);
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--racing-red), transparent);
     }
 
     .countdown {
       display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
       align-items: center;
-      justify-content: center;
-      gap: 6px;
+      justify-content: space-around;
+      gap: 4px;
+      width: 100%;
     }
 
     .time-box {
-      background: rgba(22, 22, 26, 0.9);
-      border: 1px solid rgba(230, 0, 0, 0.4);
-      border-radius: 12px;
-      padding: 0.75rem 0;
       flex: 1;
       text-align: center;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+      padding: 0.25rem 0;
     }
 
     .time-box span {
       font-family: 'Racing Sans One', cursive;
-      font-size: clamp(28px, 8vw, 38px);
+      font-style: italic;
+      font-size: clamp(24px, 7vw, 36px);
       color: var(--text-white);
       display: block;
       line-height: 1;
-      text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+      text-shadow: 0 0 14px rgba(255, 255, 255, 0.6);
     }
 
     .time-box small {
-      font-size: 8px;
+      font-family: 'Outfit', sans-serif;
+      font-size: 8.5px;
+      font-weight: 800;
       letter-spacing: 1.5px;
       text-transform: uppercase;
       color: var(--racing-yellow);
       display: block;
       margin-top: 5px;
-      font-weight: 700;
     }
 
     .separator {
       font-family: 'Racing Sans One', cursive;
-      font-size: 24px;
+      font-style: italic;
+      font-size: 22px;
       color: var(--racing-red);
       flex-shrink: 0;
       margin-bottom: 10px;
@@ -424,28 +436,30 @@
       <img src="invitacion.png" alt="Invitación Giuliano 2" class="hero-img">
     </section>
 
-    <!-- CONTADOR REGRESIVO -->
+    <!-- CONTADOR REGRESIVO COPA PISTON -->
     <section class="countdown-section">
-      <h2>FALTAN PARA LA LARGADA</h2>
-      <div class="countdown">
-        <div class="time-box">
-          <span id="dias">00</span>
-          <small>DÍAS</small>
-        </div>
-        <div class="separator">:</div>
-        <div class="time-box">
-          <span id="horas">00</span>
-          <small>HORAS</small>
-        </div>
-        <div class="separator">:</div>
-        <div class="time-box">
-          <span id="minutos">00</span>
-          <small>MINUTOS</small>
-        </div>
-        <div class="separator">:</div>
-        <div class="time-box">
-          <span id="segundos">00</span>
-          <small>SEGUNDOS</small>
+      <div class="countdown-card-wrapper">
+        <h2>🏁 FALTAN PARA LA GRAN COPA PISTÓN 🏆</h2>
+        <div class="countdown">
+          <div class="time-box">
+            <span id="dias">00</span>
+            <small>DÍAS</small>
+          </div>
+          <div class="separator">:</div>
+          <div class="time-box">
+            <span id="horas">00</span>
+            <small>HORAS</small>
+          </div>
+          <div class="separator">:</div>
+          <div class="time-box">
+            <span id="minutos">00</span>
+            <small>MINUTOS</small>
+          </div>
+          <div class="separator">:</div>
+          <div class="time-box">
+            <span id="segundos">00</span>
+            <small>SEGUNDOS</small>
+          </div>
         </div>
       </div>
     </section>
