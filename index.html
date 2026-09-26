@@ -4,436 +4,469 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Invitación — Carlos Bogado</title>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap"
-    rel="stylesheet">
+  <title>Invitación — Cumpleaños de Giuliano 🎉</title>
+  
+  <!-- Google Fonts: Outfit & Playfair Display -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+
   <style>
-    *,
-    *::before,
-    *::after {
+    *, *::before, *::after {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
 
     :root {
-      --navy: #0d1b3e;
-      --navy2: #112258;
-      --silver: #b8c4d0;
-      --silver2: #dce6f0;
-      --cream: #f4f2ed;
-      --cream2: #e8e5de;
-      --text-dark: #0d1b3e;
-      --text-mid: #4a5a7a;
-      --text-muted: #8a9ab0;
+      --bg-dark: #0A1128;
+      --bg-card: rgba(255, 255, 255, 0.06);
+      --bg-card-hover: rgba(255, 255, 255, 0.1);
+      --gold-primary: #D4AF37;
+      --gold-light: #F7E7A1;
+      --gold-dark: #AA771C;
+      --gold-gradient: linear-gradient(135deg, #FFF099 0%, #D4AF37 50%, #996E13 100%);
+      --silver: #E2E8F0;
+      --text-muted: #94A3B8;
+      --accent-blue: #1E3E62;
+      --shadow-glow: 0 8px 32px 0 rgba(212, 175, 55, 0.15);
+      --border-gold: 1px solid rgba(212, 175, 55, 0.25);
     }
 
     body {
-      background: var(--navy);
-      font-family: 'Lato', sans-serif;
-      margin: 0;
-      padding: 0;
+      background-color: var(--bg-dark);
+      background-image: 
+        radial-gradient(circle at 50% 0%, rgba(30, 62, 98, 0.5) 0%, transparent 75%),
+        radial-gradient(circle at 80% 80%, rgba(212, 175, 55, 0.08) 0%, transparent 50%);
+      font-family: 'Outfit', sans-serif;
+      color: #FFFFFF;
       min-height: 100vh;
+      padding: 1rem 0.75rem 2.5rem;
+      display: flex;
+      justify-content: center;
     }
 
-    /* ── CONTAINER ── */
     .container {
       width: 100%;
-      max-width: 480px;
+      max-width: 500px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    /* ── HERO HEADER ── */
+    .hero-card {
+      background: var(--bg-card);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: var(--border-gold);
+      border-radius: 24px;
+      padding: 2.25rem 1.25rem 1.75rem;
+      text-align: center;
+      box-shadow: var(--shadow-glow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .badge-top {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(212, 175, 55, 0.15);
+      border: 1px solid rgba(212, 175, 55, 0.4);
+      color: var(--gold-light);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 50px;
+      margin-bottom: 1rem;
+    }
+
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(32px, 8vw, 42px);
+      font-weight: 700;
+      background: var(--gold-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      line-height: 1.1;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-subtitle {
+      font-size: 14px;
+      color: var(--silver);
+      font-weight: 300;
+      line-height: 1.5;
+      max-width: 380px;
       margin: 0 auto;
     }
 
-    /* ── HERO / BANNER ── */
-    .hero {
-      width: 100%;
-    }
-
-    .hero-img {
-      width: 100%;
-      display: block;
-      border-radius: 0 0 16px 16px;
-    }
-
-    /* ── COUNTDOWN ── */
-    .countdown-section {
-      background: var(--navy);
-      padding: 1.25rem 1rem 1.5rem;
+    /* ── COUNTDOWN SECTION ── */
+    .countdown-card {
+      background: rgba(10, 17, 40, 0.6);
+      border: var(--border-gold);
+      border-radius: 20px;
+      padding: 1.25rem 1rem;
       text-align: center;
     }
 
-    .countdown-section h2 {
-      font-size: 9px;
-      letter-spacing: 3px;
+    .countdown-title {
+      font-size: 10px;
+      letter-spacing: 2.5px;
       text-transform: uppercase;
-      color: var(--silver);
+      color: var(--gold-light);
       font-weight: 600;
       margin-bottom: 1rem;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
+      gap: 10px;
     }
 
-    .countdown-section h2::before,
-    .countdown-section h2::after {
+    .countdown-title::before, .countdown-title::after {
       content: '';
-      width: 20px;
+      flex: 1;
       height: 1px;
-      background: var(--silver);
-      opacity: 0.4;
+      background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.4), transparent);
     }
 
-    .countdown {
+    .countdown-grid {
       display: flex;
       align-items: center;
-      justify-content: center;
-      gap: 6px;
+      justify-content: space-around;
+      gap: 4px;
     }
 
     .time-box {
-      background: rgba(255, 255, 255, 0.07);
-      border: 1px solid rgba(200, 212, 228, 0.15);
-      border-radius: 10px;
-      padding: 0.75rem 0;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 14px;
+      padding: 0.75rem 0.5rem;
       flex: 1;
       text-align: center;
+      transition: transform 0.2s ease;
+    }
+
+    .time-box:hover {
+      transform: translateY(-2px);
+      border-color: rgba(212, 175, 55, 0.4);
     }
 
     .time-box span {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(28px, 8vw, 40px);
+      font-size: clamp(24px, 6vw, 32px);
       font-weight: 700;
-      color: var(--silver2);
+      color: #FFFFFF;
       display: block;
       line-height: 1;
     }
 
     .time-box small {
-      font-size: 7px;
+      font-size: 8px;
       letter-spacing: 1.5px;
       text-transform: uppercase;
-      color: var(--silver);
+      color: var(--gold-light);
       display: block;
-      margin-top: 4px;
+      margin-top: 6px;
       font-weight: 600;
     }
 
     .separator {
       font-family: 'Playfair Display', serif;
-      font-size: 28px;
-      color: var(--silver);
-      opacity: 0.5;
-      margin-bottom: 14px;
-      flex-shrink: 0;
+      font-size: 20px;
+      color: var(--gold-primary);
+      opacity: 0.6;
+      margin-bottom: 10px;
     }
 
     /* ── RSVP CARD ── */
     .rsvp-card {
-      background: var(--cream2);
-      border-radius: 16px;
-      margin: 8px;
+      background: var(--bg-card);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: var(--border-gold);
+      border-radius: 20px;
       overflow: hidden;
-      border: 1px solid rgba(13, 27, 62, 0.08);
-      display: grid;
-      grid-template-columns: 140px 1fr;
+      box-shadow: var(--shadow-glow);
     }
 
-    .guest-panel {
-      background: #fff;
-      padding: 1.5rem 0.85rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+    .guest-header {
+      background: linear-gradient(180deg, rgba(212, 175, 55, 0.12) 0%, transparent 100%);
+      padding: 1.25rem 1rem 1rem;
       text-align: center;
-      border-right: 1px solid rgba(13, 27, 62, 0.08);
-      gap: 6px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     }
 
-    .guest-icon {
-      font-size: 28px;
-      margin-bottom: 4px;
+    .guest-avatar {
+      width: 50px;
+      height: 50px;
+      background: rgba(212, 175, 55, 0.2);
+      border: 1px solid var(--gold-primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 0.75rem;
+      font-size: 22px;
     }
 
-    .guest-panel h3 {
+    .guest-header h3 {
       font-size: 13px;
-      color: var(--text-mid);
+      color: var(--text-muted);
       font-weight: 400;
-      line-height: 1.5;
-    }
-
-    .guest-panel h3 span {
-      font-size: 17px;
-      font-weight: 700;
-      color: var(--navy);
-      font-family: 'Playfair Display', serif;
-      display: block;
-    }
-
-    .guest-panel p {
-      font-size: 11px;
-      color: var(--text-muted);
-      line-height: 1.5;
-    }
-
-    .guest-max {
-      font-size: 10px;
-      color: var(--text-mid);
-      font-weight: 600;
-      display: flex;
-      align-items: center;
-      gap: 4px;
-      justify-content: center;
-    }
-
-    .rsvp-panel {
-      padding: 1.25rem 1rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    #loading {
-      font-size: 12px;
-      color: var(--text-muted);
-      text-align: center;
-      padding: 1rem 0;
-    }
-
-    /* RSVP content injected by renderRSVP */
-    #rsvp-content h2 {
-      font-size: 14px;
-      font-weight: 700;
-      color: var(--navy);
       margin-bottom: 2px;
     }
 
-    #rsvp-content p {
-      font-size: 11px;
+    .guest-header h3 strong {
+      font-size: 19px;
+      font-weight: 700;
+      color: var(--gold-light);
+      font-family: 'Playfair Display', serif;
+      display: block;
+      margin-top: 2px;
+    }
+
+    .guest-header p {
+      font-size: 12px;
+      color: var(--silver);
+      margin-top: 4px;
+    }
+
+    .rsvp-body {
+      padding: 1.25rem 1.25rem;
+    }
+
+    #loading {
+      font-size: 13px;
       color: var(--text-muted);
-      margin-bottom: 0.85rem;
-    }
-
-    .person-grid {
-      display: flex;
-      gap: 6px;
-      margin-bottom: 0.85rem;
-      flex-wrap: wrap;
-    }
-
-    .person-btn {
-      flex: 1;
-      min-width: 52px;
-      padding: 10px 4px;
-      border-radius: 10px;
-      font-size: 11px;
-      font-weight: 600;
-      cursor: pointer;
-      border: 1.5px solid rgba(13, 27, 62, 0.18);
-      background: #fff;
-      color: var(--navy);
-      font-family: 'Lato', sans-serif;
-      transition: all 0.15s;
       text-align: center;
+      padding: 1.5rem 0;
     }
 
-    .person-btn:hover {
-      border-color: var(--navy);
-      background: rgba(13, 27, 62, 0.04);
+    .selector-group {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 1.25rem;
     }
 
-    .person-btn.selected {
-      background: #0B2E83;
-      color: #fff;
-      border-color: #0B2E83;
+    .selector-item {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 10px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .selector-label {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--silver);
+    }
+
+    .selector-label small {
+      display: block;
+      font-size: 10px;
+      color: var(--text-muted);
+    }
+
+    .select-input {
+      background: rgba(10, 17, 40, 0.8);
+      color: var(--gold-light);
+      border: 1px solid rgba(212, 175, 55, 0.4);
+      border-radius: 8px;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-family: 'Outfit', sans-serif;
+      outline: none;
+      cursor: pointer;
+    }
+
+    .select-input:focus {
+      border-color: var(--gold-primary);
     }
 
     .action-buttons {
       display: flex;
-      gap: 6px;
+      flex-direction: column;
+      gap: 8px;
     }
 
     .btn-primary {
-      flex: 1;
-      padding: 11px 8px;
-      border-radius: 10px;
-      font-size: 11px;
+      width: 100%;
+      padding: 12px 16px;
+      border-radius: 12px;
+      font-size: 13px;
       font-weight: 700;
       cursor: pointer;
       border: none;
-      background: var(--navy);
-      color: var(--silver2);
-      font-family: 'Lato', sans-serif;
-      transition: all 0.2s;
-      letter-spacing: 0.3px;
+      background: var(--gold-gradient);
+      color: #0A1128;
+      font-family: 'Outfit', sans-serif;
+      transition: all 0.2s ease;
+      letter-spacing: 0.5px;
+      box-shadow: 0 4px 15px rgba(212, 175, 55, 0.25);
     }
 
     .btn-primary:hover:not(:disabled) {
-      background: var(--navy2);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
     }
 
     .btn-primary:disabled {
-      opacity: 0.3;
+      opacity: 0.4;
       cursor: not-allowed;
     }
 
     .btn-secondary {
-      padding: 11px 10px;
-      border-radius: 10px;
-      font-size: 11px;
-      font-weight: 600;
+      width: 100%;
+      padding: 10px 16px;
+      border-radius: 12px;
+      font-size: 12px;
+      font-weight: 500;
       cursor: pointer;
-      border: 1.5px solid rgba(13, 27, 62, 0.2);
-      background: #fff;
-      color: var(--text-mid);
-      font-family: 'Lato', sans-serif;
-      transition: all 0.15s;
-      white-space: nowrap;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      background: transparent;
+      color: var(--text-muted);
+      font-family: 'Outfit', sans-serif;
+      transition: all 0.2s ease;
     }
 
     .btn-secondary:hover {
-      background: var(--cream2);
-      color: var(--navy);
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--silver);
     }
 
     /* States */
-    #already-box,
-    #success-confirm,
-    #success-decline {
+    #already-box, #success-confirm, #success-decline {
       text-align: center;
-      padding: 1rem 0.5rem;
-      border-radius: 10px;
+      padding: 1.25rem 0.5rem;
+    }
+
+    .state-icon {
+      font-size: 36px;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .state-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--gold-light);
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .state-sub {
       font-size: 13px;
-      color: var(--navy);
+      color: var(--text-muted);
+      display: block;
     }
 
     #error-box {
-      background: rgba(226, 75, 74, 0.08);
-      border: 1px solid rgba(226, 75, 74, 0.2);
-      border-radius: 10px;
-      padding: 0.75rem;
+      background: rgba(239, 68, 68, 0.12);
+      border: 1px solid rgba(239, 68, 68, 0.3);
+      border-radius: 12px;
+      padding: 10px;
       font-size: 12px;
-      color: #b03030;
+      color: #FCA5A5;
       text-align: center;
+      margin-bottom: 1rem;
     }
 
     /* ── INFO GRID ── */
     .info-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 8px;
-      padding: 0 8px 8px;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 10px;
     }
 
     .info-card {
-      background: rgba(255, 255, 255, 0.07);
-      border: 1px solid rgba(200, 212, 228, 0.12);
-      border-radius: 14px;
-      padding: 1rem 0.65rem;
+      background: var(--bg-card);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: var(--border-gold);
+      border-radius: 16px;
+      padding: 1.15rem 0.85rem;
+      text-align: center;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 4px;
-      text-align: center;
+      justify-content: space-between;
+      gap: 6px;
+    }
+
+    .info-icon {
+      font-size: 22px;
+      margin-bottom: 2px;
     }
 
     .info-card h4 {
-      font-size: 7px;
-      letter-spacing: 1px;
+      font-size: 9px;
+      letter-spacing: 1.5px;
       text-transform: uppercase;
-      color: var(--silver);
+      color: var(--gold-light);
       font-weight: 600;
-      line-height: 1.4;
     }
 
     .info-card p {
-      font-size: 11px;
-      color: var(--silver2);
-      font-weight: 500;
-      line-height: 1.3;
-    }
-
-    .hour {
-      font-size: 16px;
-      font-weight: 700;
-      color: var(--silver2);
-    }
-
-    .phone {
-      font-size: 11px;
-      font-weight: 600;
-      color: var(--silver2);
-      line-height: 1.4;
-    }
-
-    .info-card small {
-      font-size: 11px;
-      font-style: italic;
+      font-size: 12px;
       color: var(--silver);
+      font-weight: 400;
+      line-height: 1.3;
     }
 
     .info-btn {
       margin-top: 6px;
-      padding: 7px 8px;
+      padding: 8px 10px;
       border-radius: 8px;
       font-size: 10px;
       font-weight: 600;
       cursor: pointer;
-      border: 1px solid rgba(200, 212, 228, 0.2);
-      background: var(--navy2);
-      color: var(--silver2);
-      font-family: 'Lato', sans-serif;
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      background: rgba(212, 175, 55, 0.12);
+      color: var(--gold-light);
       text-decoration: none;
       display: block;
       width: 100%;
       text-align: center;
-      transition: all 0.15s;
+      transition: all 0.2s ease;
     }
 
     .info-btn:hover {
-      background: rgba(255, 255, 255, 0.12);
+      background: rgba(212, 175, 55, 0.25);
+      border-color: var(--gold-primary);
     }
 
     /* ── FOOTER ── */
     footer {
-      padding: 0.9rem 1rem 1.4rem;
       text-align: center;
       font-size: 13px;
-      font-style: italic;
-      color: var(--silver);
+      color: var(--text-muted);
       font-family: 'Playfair Display', serif;
+      padding-top: 0.5rem;
     }
 
-    /* ── MOBILE ── */
     @media (max-width: 400px) {
-      .rsvp-card {
-        grid-template-columns: 120px 1fr;
-      }
-
-      .guest-panel {
-        padding: 1.25rem 0.6rem;
-      }
-
-      .guest-panel h3 span {
-        font-size: 15px;
-      }
-
-      .info-card h4 {
-        font-size: 6.5px;
-      }
-
-      .info-card p,
-      .phone {
-        font-size: 10px;
-      }
-
-      .info-btn {
-        font-size: 9px;
-        padding: 6px 4px;
-      }
-
-      .hour {
-        font-size: 14px;
+      .info-grid {
+        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -441,14 +474,18 @@
 
 <body>
   <div class="container">
-    <!-- BANNER -->
-    <section class="hero">
-      <img src="invitacion.png" alt="Invitación Carlos Bogado" class="hero-img">
-    </section>
-    <!-- CONTADOR -->
-    <section class="countdown-section">
-      <h2>FALTAN PARA LA CELEBRACIÓN</h2>
-      <div class="countdown">
+    
+    <!-- HERO HEADER -->
+    <header class="hero-card">
+      <div class="badge-top">✨ ¡ESTÁS INVITADO! ✨</div>
+      <h1 class="hero-title">Mis 1 Año<br>Giuliano</h1>
+      <p class="hero-subtitle">Te esperamos para celebrar juntos un año lleno de sonrisas, juego y momentos inolvidables.</p>
+    </header>
+
+    <!-- COUNTDOWN -->
+    <section class="countdown-card">
+      <div class="countdown-title">FALTAN PARA LA CELEBRACIÓN</div>
+      <div class="countdown-grid">
         <div class="time-box">
           <span id="dias">00</span>
           <small>DÍAS</small>
@@ -470,91 +507,72 @@
         </div>
       </div>
     </section>
-    <!-- RSVP -->
+
+    <!-- RSVP CARD -->
     <section class="rsvp-card">
-      <div class="guest-panel">
-        <div class="guest-icon">
-          <svg width="56" height="56" viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg">
-            <!-- Círculo fondo -->
-            <circle cx="28" cy="28" r="27" fill="#f0f2f8" stroke="#dde2f0" stroke-width="1" />
-            <!-- Cuerpo del sobre -->
-            <rect x="10" y="17" width="36" height="24" rx="3" fill="none" stroke="#0d1b3e" stroke-width="2" />
-            <!-- Solapa superior (V) -->
-            <polyline points="10,17 28,30 46,17" fill="none" stroke="#0d1b3e" stroke-width="2"
-              stroke-linejoin="round" />
-            <!-- Corazón esquina inferior derecha -->
-            <path
-              d="M38,34 C38,34 33,30 33,27.5 C33,26 34.2,25 35.5,25.5 C36.5,25.8 38,27 38,27 C38,27 39.5,25.8 40.5,25.5 C41.8,25 43,26 43,27.5 C43,30 38,34 38,34Z"
-              fill="#0d1b3e" />
-          </svg>
-        </div>
-        <h3>
-          Hola,<br>
-          <span id="guestName">Invitado</span>
-        </h3>
-        <p id="guestCupo">
-          Tu invitación es para hasta 1 persona.
-        </p>
-        <div class="guest-max">
-          👥 Máximo <span id="guestMax">1</span> personas
-        </div>
+      <div class="guest-header">
+        <div class="guest-avatar">📩</div>
+        <h3>Invitación para: <strong id="guestName">Cargando...</strong></h3>
+        <p id="guestCupo">Cargando cupos...</p>
       </div>
-      <div class="rsvp-panel">
-        <div id="loading">
-          Cargando invitación...
-        </div>
-        <div id="rsvp-content"></div>
-        <div id="already-box" style="display:none;">
-          <span style="font-size:28px;display:block;margin-bottom:6px;">✓</span>
-          <span id="already-title"
-            style="font-size:15px;font-weight:700;color:#0d1b3e;display:block;margin-bottom:4px;"></span>
-          <span id="already-sub" style="font-size:12px;color:#8a9ab0;display:block;"></span>
-        </div>
+
+      <div class="rsvp-body">
+        <div id="loading">✨ Cargando tu invitación personalizada...</div>
         <div id="error-box" style="display:none;"></div>
-        <div id="success-confirm" style="display:none;">
-          <span style="font-size:28px;display:block;margin-bottom:6px;">🎉</span>
-          <span id="sc-title"
-            style="font-size:15px;font-weight:700;color:#0d1b3e;display:block;margin-bottom:4px;"></span>
-          <span id="sc-sub" style="font-size:12px;color:#8a9ab0;display:block;"></span>
+        <div id="rsvp-content"></div>
+
+        <div id="already-box" style="display:none;">
+          <span class="state-icon">✅</span>
+          <span id="already-title" class="state-title"></span>
+          <span id="already-sub" class="state-sub"></span>
         </div>
+
+        <div id="success-confirm" style="display:none;">
+          <span class="state-icon">🎉</span>
+          <span id="sc-title" class="state-title"></span>
+          <span id="sc-sub" class="state-sub"></span>
+        </div>
+
         <div id="success-decline" style="display:none;">
-          <span style="font-size:28px;display:block;margin-bottom:6px;">💙</span>
-          <span style="font-size:15px;font-weight:700;color:#0d1b3e;display:block;margin-bottom:4px;">¡Gracias por
-            avisar!</span>
-          <span style="font-size:12px;color:#8a9ab0;display:block;">Te vamos a extrañar en la fiesta.</span>
+          <span class="state-icon">💙</span>
+          <span class="state-title">¡Gracias por avisar!</span>
+          <span class="state-sub">Te vamos a extrañar mucho en la fiesta.</span>
         </div>
       </div>
     </section>
-    <!-- INFO -->
+
+    <!-- INFO GRID -->
     <section class="info-grid">
       <div class="info-card">
-        <h4>📍 UBICACIÓN</h4>
-        <p>Salón de Eventos Amancay</p>
-        <p>Barrio San Ramón - Calle Ultima</p>
+        <div class="info-icon">📍</div>
+        <h4>UBICACIÓN</h4>
+        <p>Salón de Eventos Amancay<br><small style="color:var(--text-muted)">Barrio San Ramón - Calle Ultima</small></p>
         <a href="https://maps.app.goo.gl/gQYUdELYaQ8Nciix6?g_st=aw" target="_blank" class="info-btn">
-          Abrir ubicación
+          Ver en Mapa 🗺️
         </a>
       </div>
+
       <div class="info-card">
-        <h4>🕘 HORARIO</h4>
-        <div class="hour">
-          18:00 hs
-        </div>
-        <small>¡Nos vemos allí!</small>
+        <div class="info-icon">🕘</div>
+        <h4>HORARIO</h4>
+        <p style="font-size:16px;font-weight:700;color:var(--gold-light);">18:00 hs</p>
+        <p><small style="color:var(--text-muted)">¡Puntualidad!</small></p>
       </div>
+
       <div class="info-card">
-        <h4>📞 CONTACTO DE LA ORGANIZACIÓN</h4>
-        <div class="phone">
-          +595 972 607418
-        </div>
+        <div class="info-icon">📞</div>
+        <h4>CONTACTO</h4>
+        <p>+595 972 607418</p>
         <a href="https://wa.me/595972607418" target="_blank" class="info-btn">
-          Consultar por WhatsApp
+          Enviar WhatsApp 📲
         </a>
       </div>
     </section>
+
     <footer>
       Con cariño, 💙 Familia Bogado
     </footer>
+
   </div>
 
   <script>
@@ -565,13 +583,12 @@
     }
 
     const TOKEN = getParam('token');
-
     let invitado = null;
 
     async function init() {
       if (!TOKEN) {
         document.getElementById('loading').style.display = 'none';
-        showError('Token inválido');
+        showError('Token no especificado en la URL');
         return;
       }
 
@@ -581,7 +598,7 @@
         document.getElementById('loading').style.display = 'none';
 
         if (!data.ok) {
-          showError(data.error);
+          showError(data.error || 'Token inválido');
           return;
         }
 
@@ -595,14 +612,14 @@
       } catch (err) {
         document.getElementById('loading').style.display = 'none';
         console.error(err);
-        showError(err.message || 'Error al cargar invitación');
+        showError('Error al conectar con la invitación');
       }
     }
 
     async function confirmar() {
       const btn = document.getElementById('btn-confirm');
       btn.disabled = true;
-      btn.textContent = 'Enviando...';
+      btn.textContent = 'Guardando respuesta...';
 
       const adultos = document.getElementById('sel-adultos') ? Number(document.getElementById('sel-adultos').value) : 0;
       const ninos = document.getElementById('sel-ninos') ? Number(document.getElementById('sel-ninos').value) : 0;
@@ -625,20 +642,20 @@
         if (!result.ok) throw new Error(result.error);
 
         document.getElementById('rsvp-content').style.display = 'none';
-        document.getElementById('sc-title').textContent = `¡Gracias, ${invitado.nombre}!`;
+        document.getElementById('sc-title').textContent = `¡Gracias por confirmar, ${invitado.nombre}!`;
         
         let resumenTexto = [];
         if (adultos > 0) resumenTexto.push(`${adultos} adulto(s)`);
         if (ninos > 0) resumenTexto.push(`${ninos} niño(s)`);
         if (ninas > 0) resumenTexto.push(`${ninas} niña(s)`);
         
-        document.getElementById('sc-sub').textContent = 'Anotamos: ' + (resumenTexto.join(', ') || 'tu lugar');
+        document.getElementById('sc-sub').textContent = 'Confirmaste: ' + (resumenTexto.join(', ') || 'asistencia');
         document.getElementById('success-confirm').style.display = 'block';
 
       } catch (err) {
         btn.disabled = false;
         btn.textContent = '✓ Confirmar asistencia';
-        showError(err.message || 'No se pudo guardar');
+        showError(err.message || 'No se pudo guardar la respuesta');
       }
     }
 
@@ -662,7 +679,7 @@
         document.getElementById('rsvp-content').style.display = 'none';
         document.getElementById('success-decline').style.display = 'block';
       } catch (err) {
-        showError(err.message || 'No se pudo guardar');
+        showError(err.message || 'No se pudo guardar la respuesta');
       }
     }
 
@@ -671,8 +688,7 @@
       document.getElementById('guestName').textContent = data.nombre;
       
       const totalMax = (data.cupoAdulto || 0) + (data.cupoNino || 0) + (data.cupoNina || 0);
-      document.getElementById('guestCupo').textContent = `Tu invitación es para hasta ${totalMax} personas.`;
-      document.getElementById('guestMax').textContent = totalMax;
+      document.getElementById('guestCupo').textContent = `Invitación para hasta ${totalMax} persona(s)`;
 
       const confirmo = String(data.asistencia).toLowerCase().includes('confirm');
 
@@ -682,10 +698,10 @@
         if (data.adultoConfirmado > 0) detalle.push(`${data.adultoConfirmado} adulto(s)`);
         if (data.ninoConfirmado > 0) detalle.push(`${data.ninoConfirmado} niño(s)`);
         if (data.ninaConfirmada > 0) detalle.push(`${data.ninaConfirmada} niña(s)`);
-        document.getElementById('already-sub').textContent = 'Confirmaste: ' + (detalle.join(', ') || 'asistencia');
+        document.getElementById('already-sub').textContent = 'Anotados: ' + (detalle.join(', ') || 'asistencia');
       } else {
         document.getElementById('already-title').textContent = 'Ya registramos tu respuesta';
-        document.getElementById('already-sub').textContent = 'Indicaste que no podrás asistir.';
+        document.getElementById('already-sub').textContent = 'Indicaste que no podrás asistir a la fiesta.';
       }
 
       box.style.display = 'block';
@@ -694,52 +710,61 @@
     function renderRSVP() {
       document.getElementById('guestName').textContent = invitado.nombre;
       const totalMax = (invitado.cupoAdulto || 0) + (invitado.cupoNino || 0) + (invitado.cupoNina || 0);
-      document.getElementById('guestCupo').textContent = `Tu invitación es para hasta ${totalMax} personas.`;
-      document.getElementById('guestMax').textContent = totalMax;
+      document.getElementById('guestCupo').textContent = `Invitación para hasta ${totalMax} persona(s)`;
 
-      let selectHtml = '';
+      let selectors = '';
 
       if (invitado.cupoAdulto > 0) {
-        selectHtml += `
-          <div style="margin-bottom:8px;text-align:left;">
-            <label style="font-size:12px;font-weight:600;display:block;margin-bottom:2px;">Adultos (máx. ${invitado.cupoAdulto}):</label>
-            <select id="sel-adultos" style="width:100%;padding:6px;border-radius:6px;border:1px solid #ccc;">
+        selectors += `
+          <div class="selector-item">
+            <div class="selector-label">
+              Adultos
+              <small>Máximo ${invitado.cupoAdulto}</small>
+            </div>
+            <select id="sel-adultos" class="select-input">
         `;
         for (let i = 1; i <= invitado.cupoAdulto; i++) {
-          selectHtml += `<option value="${i}" ${i === invitado.cupoAdulto ? 'selected' : ''}>${i} adulto(s)</option>`;
+          selectors += `<option value="${i}" ${i === invitado.cupoAdulto ? 'selected' : ''}>${i} adulto(s)</option>`;
         }
-        selectHtml += `</select></div>`;
+        selectors += `</select></div>`;
       }
 
       if (invitado.cupoNino > 0) {
-        selectHtml += `
-          <div style="margin-bottom:8px;text-align:left;">
-            <label style="font-size:12px;font-weight:600;display:block;margin-bottom:2px;">Niños (máx. ${invitado.cupoNino}):</label>
-            <select id="sel-ninos" style="width:100%;padding:6px;border-radius:6px;border:1px solid #ccc;">
+        selectors += `
+          <div class="selector-item">
+            <div class="selector-label">
+              Niños
+              <small>Máximo ${invitado.cupoNino}</small>
+            </div>
+            <select id="sel-ninos" class="select-input">
         `;
         for (let i = 0; i <= invitado.cupoNino; i++) {
-          selectHtml += `<option value="${i}" ${i === invitado.cupoNino ? 'selected' : ''}>${i} niño(s)</option>`;
+          selectors += `<option value="${i}" ${i === invitado.cupoNino ? 'selected' : ''}>${i} niño(s)</option>`;
         }
-        selectHtml += `</select></div>`;
+        selectors += `</select></div>`;
       }
 
       if (invitado.cupoNina > 0) {
-        selectHtml += `
-          <div style="margin-bottom:8px;text-align:left;">
-            <label style="font-size:12px;font-weight:600;display:block;margin-bottom:2px;">Niñas (máx. ${invitado.cupoNina}):</label>
-            <select id="sel-ninas" style="width:100%;padding:6px;border-radius:6px;border:1px solid #ccc;">
+        selectors += `
+          <div class="selector-item">
+            <div class="selector-label">
+              Niñas
+              <small>Máximo ${invitado.cupoNina}</small>
+            </div>
+            <select id="sel-ninas" class="select-input">
         `;
         for (let i = 0; i <= invitado.cupoNina; i++) {
-          selectHtml += `<option value="${i}" ${i === invitado.cupoNina ? 'selected' : ''}>${i} niña(s)</option>`;
+          selectors += `<option value="${i}" ${i === invitado.cupoNina ? 'selected' : ''}>${i} niña(s)</option>`;
         }
-        selectHtml += `</select></div>`;
+        selectors += `</select></div>`;
       }
 
       document.getElementById('rsvp-content').innerHTML = `
-        <h2 style="font-size:14px;margin-bottom:4px;">Confirmar Asistencia</h2>
-        <p style="font-size:11px;color:#666;margin-bottom:8px;">Selecciona la cantidad de asistentes:</p>
-        ${selectHtml}
-        <div class="action-buttons" style="margin-top:12px;">
+        <h4 style="font-size:14px;color:var(--gold-light);margin-bottom:8px;text-align:center;">¿Cuántos asistirán?</h4>
+        <div class="selector-group">
+          ${selectors}
+        </div>
+        <div class="action-buttons">
           <button id="btn-confirm" class="btn-primary" onclick="confirmar()">
             ✓ Confirmar asistencia
           </button>
@@ -765,10 +790,10 @@
         const horas = Math.floor((diff % 86400000) / 3600000);
         const minutos = Math.floor((diff % 3600000) / 60000);
         const segundos = Math.floor((diff % 60000) / 1000);
-        document.getElementById('dias').textContent = dias;
-        document.getElementById('horas').textContent = horas;
-        document.getElementById('minutos').textContent = minutos;
-        document.getElementById('segundos').textContent = segundos;
+        document.getElementById('dias').textContent = String(dias).padStart(2, '0');
+        document.getElementById('horas').textContent = String(horas).padStart(2, '0');
+        document.getElementById('minutos').textContent = String(minutos).padStart(2, '0');
+        document.getElementById('segundos').textContent = String(segundos).padStart(2, '0');
       }, 1000);
     }
     iniciarContador();
