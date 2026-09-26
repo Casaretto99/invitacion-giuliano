@@ -587,7 +587,7 @@
 
         invitado = data;
 
-        if (data.yaRespondio) {
+        if (data.yaRespondio && data.asistencia !== 'Pendiente') {
           showAlready(data);
         } else {
           renderRSVP();
