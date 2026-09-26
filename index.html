@@ -4,12 +4,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Invitación — Cumpleaños de Giuliano 🎉</title>
-  
-  <!-- Google Fonts: Outfit & Playfair Display -->
+  <title>Giuliano 2 — ¡Gran Premio Copa Pistón! 🏎️💨</title>
+
+  <!-- Google Fonts: Racing & Modern Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Racing+Sans+One&display=swap" rel="stylesheet">
 
   <style>
     *, *::before, *::after {
@@ -19,130 +19,157 @@
     }
 
     :root {
-      --bg-dark: #0A1128;
-      --bg-card: rgba(255, 255, 255, 0.06);
-      --bg-card-hover: rgba(255, 255, 255, 0.1);
-      --gold-primary: #D4AF37;
-      --gold-light: #F7E7A1;
-      --gold-dark: #AA771C;
-      --gold-gradient: linear-gradient(135deg, #FFF099 0%, #D4AF37 50%, #996E13 100%);
-      --silver: #E2E8F0;
-      --text-muted: #94A3B8;
-      --accent-blue: #1E3E62;
-      --shadow-glow: 0 8px 32px 0 rgba(212, 175, 55, 0.15);
-      --border-gold: 1px solid rgba(212, 175, 55, 0.25);
+      --mcqueen-red: #D90429;
+      --mcqueen-red-dark: #8D0801;
+      --mcqueen-yellow: #FFB703;
+      --mcqueen-gold: #FB8500;
+      --track-dark: #121214;
+      --track-card: rgba(24, 24, 27, 0.85);
+      --silver-chrome: linear-gradient(135deg, #E2E8F0 0%, #94A3B8 50%, #475569 100%);
+      --text-white: #FFFFFF;
+      --text-muted: #A1A1AA;
+      --border-red: 2px solid rgba(217, 4, 41, 0.4);
+      --border-yellow: 2px solid rgba(255, 183, 3, 0.4);
+      --shadow-red: 0 8px 30px rgba(217, 4, 41, 0.3);
     }
 
     body {
-      background-color: var(--bg-dark);
+      background-color: var(--track-dark);
       background-image: 
-        radial-gradient(circle at 50% 0%, rgba(30, 62, 98, 0.5) 0%, transparent 75%),
-        radial-gradient(circle at 80% 80%, rgba(212, 175, 55, 0.08) 0%, transparent 50%);
+        radial-gradient(circle at 50% 0%, rgba(217, 4, 41, 0.25) 0%, transparent 70%),
+        radial-gradient(circle at 80% 90%, rgba(255, 183, 3, 0.15) 0%, transparent 50%);
       font-family: 'Outfit', sans-serif;
-      color: #FFFFFF;
+      color: var(--text-white);
       min-height: 100vh;
-      padding: 1rem 0.75rem 2.5rem;
+      padding: 0 0 3rem;
       display: flex;
       justify-content: center;
     }
 
     .container {
       width: 100%;
-      max-width: 500px;
+      max-width: 480px;
       margin: 0 auto;
       display: flex;
       flex-direction: column;
       gap: 1.25rem;
+      padding: 0 0.85rem;
     }
 
-    /* ── HERO HEADER ── */
+    /* ── CHECKERED BANNER TOP ── */
+    .checkered-bar {
+      height: 16px;
+      width: 100%;
+      background: repeating-conic-gradient(#000000 0 25%, #FFFFFF 0 50%) 0 0 / 24px 24px;
+      border-bottom: 3px solid var(--mcqueen-red);
+    }
+
+    /* ── HERO HEADER CARS ── */
     .hero-card {
-      background: var(--bg-card);
+      background: var(--track-card);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
-      border: var(--border-gold);
+      border: var(--border-red);
       border-radius: 24px;
-      padding: 2.25rem 1.25rem 1.75rem;
+      padding: 2rem 1.25rem 1.75rem;
       text-align: center;
-      box-shadow: var(--shadow-glow);
+      box-shadow: var(--shadow-red);
       position: relative;
       overflow: hidden;
+      margin-top: 0.5rem;
     }
 
     .hero-card::before {
       content: '';
       position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 60%);
+      top: 0;
+      right: 0;
+      width: 120px;
+      height: 120px;
+      background: radial-gradient(circle, rgba(255, 183, 3, 0.2) 0%, transparent 70%);
       pointer-events: none;
     }
 
-    .badge-top {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: rgba(212, 175, 55, 0.15);
-      border: 1px solid rgba(212, 175, 55, 0.4);
-      color: var(--gold-light);
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      padding: 6px 14px;
-      border-radius: 50px;
+    /* Emblem Logo Cars */
+    .cars-emblem {
+      background: linear-gradient(180deg, #1E293B 0%, #0F172A 100%);
+      border: 3px solid var(--mcqueen-yellow);
+      border-radius: 18px;
+      padding: 12px 18px;
+      display: inline-block;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.6), inset 0 2px 4px rgba(255,255,255,0.3);
+      position: relative;
       margin-bottom: 1rem;
     }
 
-    .hero-title {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(32px, 8vw, 42px);
-      font-weight: 700;
-      background: var(--gold-gradient);
+    .cars-logo-text {
+      font-family: 'Racing Sans One', cursive;
+      font-size: 32px;
+      text-transform: uppercase;
+      background: linear-gradient(180deg, #FFFFFF 0%, #CBD5E1 45%, #94A3B8 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      line-height: 1.1;
-      margin-bottom: 0.5rem;
+      letter-spacing: 2px;
+      line-height: 1;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    }
+
+    .cars-number {
+      font-family: 'Racing Sans One', cursive;
+      font-size: 52px;
+      color: var(--mcqueen-yellow);
+      line-height: 0.9;
+      margin-top: 2px;
+      text-shadow: 3px 3px 0px var(--mcqueen-red-dark), 0 0 15px rgba(255, 183, 3, 0.6);
+      display: block;
+    }
+
+    .tagline-badge {
+      background: var(--mcqueen-red);
+      color: #FFFFFF;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 8px 16px;
+      border-radius: 50px;
+      display: inline-block;
+      margin-bottom: 0.85rem;
+      box-shadow: 0 4px 12px rgba(217, 4, 41, 0.4);
+      border: 1px solid rgba(255,255,255,0.3);
     }
 
     .hero-subtitle {
-      font-size: 14px;
-      color: var(--silver);
-      font-weight: 300;
-      line-height: 1.5;
-      max-width: 380px;
-      margin: 0 auto;
+      font-size: 15px;
+      color: #F4F4F5;
+      font-weight: 500;
+      line-height: 1.4;
     }
 
-    /* ── COUNTDOWN SECTION ── */
+    .hero-subtitle strong {
+      color: var(--mcqueen-yellow);
+    }
+
+    /* ── COUNTDOWN COPA PISTON ── */
     .countdown-card {
-      background: rgba(10, 17, 40, 0.6);
-      border: var(--border-gold);
+      background: linear-gradient(180deg, rgba(30, 41, 59, 0.9) 0%, rgba(15, 23, 42, 0.95) 100%);
+      border: var(--border-yellow);
       border-radius: 20px;
       padding: 1.25rem 1rem;
       text-align: center;
+      box-shadow: 0 6px 20px rgba(255, 183, 3, 0.15);
     }
 
-    .countdown-title {
-      font-size: 10px;
-      letter-spacing: 2.5px;
-      text-transform: uppercase;
-      color: var(--gold-light);
-      font-weight: 600;
-      margin-bottom: 1rem;
+    .countdown-header {
+      font-family: 'Racing Sans One', cursive;
+      font-size: 14px;
+      letter-spacing: 1.5px;
+      color: var(--mcqueen-yellow);
+      margin-bottom: 0.85rem;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 10px;
-    }
-
-    .countdown-title::before, .countdown-title::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.4), transparent);
+      gap: 8px;
     }
 
     .countdown-grid {
@@ -153,109 +180,102 @@
     }
 
     .time-box {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 14px;
-      padding: 0.75rem 0.5rem;
+      background: rgba(0, 0, 0, 0.6);
+      border: 1px solid rgba(255, 183, 3, 0.3);
+      border-radius: 12px;
+      padding: 0.65rem 0.4rem;
       flex: 1;
       text-align: center;
-      transition: transform 0.2s ease;
-    }
-
-    .time-box:hover {
-      transform: translateY(-2px);
-      border-color: rgba(212, 175, 55, 0.4);
     }
 
     .time-box span {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(24px, 6vw, 32px);
-      font-weight: 700;
+      font-family: 'Racing Sans One', cursive;
+      font-size: clamp(26px, 7vw, 34px);
       color: #FFFFFF;
       display: block;
       line-height: 1;
+      text-shadow: 0 0 10px rgba(255,255,255,0.4);
     }
 
     .time-box small {
-      font-size: 8px;
-      letter-spacing: 1.5px;
+      font-size: 9px;
+      letter-spacing: 1px;
       text-transform: uppercase;
-      color: var(--gold-light);
+      color: var(--mcqueen-yellow);
       display: block;
-      margin-top: 6px;
-      font-weight: 600;
+      margin-top: 4px;
+      font-weight: 700;
     }
 
     .separator {
-      font-family: 'Playfair Display', serif;
-      font-size: 20px;
-      color: var(--gold-primary);
-      opacity: 0.6;
-      margin-bottom: 10px;
+      font-family: 'Racing Sans One', cursive;
+      font-size: 24px;
+      color: var(--mcqueen-red);
     }
 
-    /* ── RSVP CARD ── */
+    /* ── RSVP PITS CARD ── */
     .rsvp-card {
-      background: var(--bg-card);
+      background: var(--track-card);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
-      border: var(--border-gold);
+      border: var(--border-red);
       border-radius: 20px;
       overflow: hidden;
-      box-shadow: var(--shadow-glow);
+      box-shadow: var(--shadow-red);
     }
 
     .guest-header {
-      background: linear-gradient(180deg, rgba(212, 175, 55, 0.12) 0%, transparent 100%);
+      background: linear-gradient(180deg, rgba(217, 4, 41, 0.25) 0%, transparent 100%);
       padding: 1.25rem 1rem 1rem;
       text-align: center;
       border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     }
 
     .guest-avatar {
-      width: 50px;
-      height: 50px;
-      background: rgba(212, 175, 55, 0.2);
-      border: 1px solid var(--gold-primary);
+      width: 52px;
+      height: 52px;
+      background: var(--mcqueen-red);
+      border: 2px solid var(--mcqueen-yellow);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin: 0 auto 0.75rem;
-      font-size: 22px;
+      margin: 0 auto 0.65rem;
+      font-size: 24px;
+      box-shadow: 0 4px 12px rgba(217, 4, 41, 0.5);
     }
 
     .guest-header h3 {
       font-size: 13px;
       color: var(--text-muted);
-      font-weight: 400;
-      margin-bottom: 2px;
+      font-weight: 500;
     }
 
     .guest-header h3 strong {
-      font-size: 19px;
-      font-weight: 700;
-      color: var(--gold-light);
-      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      font-weight: 800;
+      color: #FFFFFF;
+      font-family: 'Outfit', sans-serif;
       display: block;
       margin-top: 2px;
     }
 
     .guest-header p {
       font-size: 12px;
-      color: var(--silver);
+      color: var(--mcqueen-yellow);
+      font-weight: 600;
       margin-top: 4px;
     }
 
     .rsvp-body {
-      padding: 1.25rem 1.25rem;
+      padding: 1.25rem;
     }
 
     #loading {
       font-size: 13px;
       color: var(--text-muted);
       text-align: center;
-      padding: 1.5rem 0;
+      padding: 1.25rem 0;
     }
 
     .selector-group {
@@ -266,8 +286,8 @@
     }
 
     .selector-item {
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.12);
       border-radius: 12px;
       padding: 10px 14px;
       display: flex;
@@ -277,30 +297,27 @@
 
     .selector-label {
       font-size: 13px;
-      font-weight: 500;
-      color: var(--silver);
+      font-weight: 600;
+      color: #FFFFFF;
     }
 
     .selector-label small {
       display: block;
       font-size: 10px;
-      color: var(--text-muted);
+      color: var(--mcqueen-yellow);
     }
 
     .select-input {
-      background: rgba(10, 17, 40, 0.8);
-      color: var(--gold-light);
-      border: 1px solid rgba(212, 175, 55, 0.4);
+      background: #000000;
+      color: var(--mcqueen-yellow);
+      border: 1.5px solid var(--mcqueen-red);
       border-radius: 8px;
       padding: 6px 12px;
       font-size: 13px;
+      font-weight: 700;
       font-family: 'Outfit', sans-serif;
       outline: none;
       cursor: pointer;
-    }
-
-    .select-input:focus {
-      border-color: var(--gold-primary);
     }
 
     .action-buttons {
@@ -309,38 +326,34 @@
       gap: 8px;
     }
 
-    .btn-primary {
+    .btn-confirm {
       width: 100%;
-      padding: 12px 16px;
+      padding: 14px 16px;
       border-radius: 12px;
-      font-size: 13px;
-      font-weight: 700;
+      font-size: 14px;
+      font-weight: 800;
       cursor: pointer;
       border: none;
-      background: var(--gold-gradient);
-      color: #0A1128;
+      background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+      color: #FFFFFF;
       font-family: 'Outfit', sans-serif;
       transition: all 0.2s ease;
       letter-spacing: 0.5px;
-      box-shadow: 0 4px 15px rgba(212, 175, 55, 0.25);
+      box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+      text-transform: uppercase;
     }
 
-    .btn-primary:hover:not(:disabled) {
+    .btn-confirm:hover:not(:disabled) {
       transform: translateY(-1px);
-      box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+      box-shadow: 0 6px 20px rgba(16, 185, 129, 0.5);
     }
 
-    .btn-primary:disabled {
-      opacity: 0.4;
-      cursor: not-allowed;
-    }
-
-    .btn-secondary {
+    .btn-decline {
       width: 100%;
-      padding: 10px 16px;
+      padding: 11px 16px;
       border-radius: 12px;
       font-size: 12px;
-      font-weight: 500;
+      font-weight: 600;
       cursor: pointer;
       border: 1px solid rgba(255, 255, 255, 0.15);
       background: transparent;
@@ -349,60 +362,60 @@
       transition: all 0.2s ease;
     }
 
-    .btn-secondary:hover {
-      background: rgba(255, 255, 255, 0.06);
-      color: var(--silver);
+    .btn-decline:hover {
+      background: rgba(255, 255, 255, 0.08);
+      color: #FFFFFF;
     }
 
-    /* States */
+    /* Status Messages */
     #already-box, #success-confirm, #success-decline {
       text-align: center;
       padding: 1.25rem 0.5rem;
     }
 
     .state-icon {
-      font-size: 36px;
+      font-size: 40px;
       display: block;
       margin-bottom: 8px;
     }
 
     .state-title {
-      font-size: 16px;
-      font-weight: 700;
-      color: var(--gold-light);
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--mcqueen-yellow);
       display: block;
       margin-bottom: 4px;
     }
 
     .state-sub {
       font-size: 13px;
-      color: var(--text-muted);
+      color: #E4E4E7;
       display: block;
     }
 
     #error-box {
-      background: rgba(239, 68, 68, 0.12);
-      border: 1px solid rgba(239, 68, 68, 0.3);
+      background: rgba(217, 4, 41, 0.2);
+      border: 1px solid var(--mcqueen-red);
       border-radius: 12px;
       padding: 10px;
       font-size: 12px;
-      color: #FCA5A5;
+      color: #FECDD3;
       text-align: center;
       margin-bottom: 1rem;
     }
 
-    /* ── INFO GRID ── */
+    /* ── INFO CIRCUIT CARDS ── */
     .info-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(135px, 1fr));
       gap: 10px;
     }
 
     .info-card {
-      background: var(--bg-card);
+      background: var(--track-card);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
-      border: var(--border-gold);
+      border: 1px solid rgba(255, 255, 255, 0.12);
       border-radius: 16px;
       padding: 1.15rem 0.85rem;
       text-align: center;
@@ -414,7 +427,7 @@
     }
 
     .info-icon {
-      font-size: 22px;
+      font-size: 24px;
       margin-bottom: 2px;
     }
 
@@ -422,15 +435,15 @@
       font-size: 9px;
       letter-spacing: 1.5px;
       text-transform: uppercase;
-      color: var(--gold-light);
-      font-weight: 600;
+      color: var(--mcqueen-yellow);
+      font-weight: 700;
     }
 
     .info-card p {
       font-size: 12px;
-      color: var(--silver);
-      font-weight: 400;
-      line-height: 1.3;
+      color: #F4F4F5;
+      font-weight: 500;
+      line-height: 1.35;
     }
 
     .info-btn {
@@ -438,21 +451,22 @@
       padding: 8px 10px;
       border-radius: 8px;
       font-size: 10px;
-      font-weight: 600;
+      font-weight: 700;
       cursor: pointer;
-      border: 1px solid rgba(212, 175, 55, 0.3);
-      background: rgba(212, 175, 55, 0.12);
-      color: var(--gold-light);
+      border: 1px solid var(--mcqueen-red);
+      background: rgba(217, 4, 41, 0.2);
+      color: #FFFFFF;
       text-decoration: none;
       display: block;
       width: 100%;
       text-align: center;
       transition: all 0.2s ease;
+      text-transform: uppercase;
     }
 
     .info-btn:hover {
-      background: rgba(212, 175, 55, 0.25);
-      border-color: var(--gold-primary);
+      background: var(--mcqueen-red);
+      color: #FFFFFF;
     }
 
     /* ── FOOTER ── */
@@ -460,7 +474,7 @@
       text-align: center;
       font-size: 13px;
       color: var(--text-muted);
-      font-family: 'Playfair Display', serif;
+      font-weight: 600;
       padding-top: 0.5rem;
     }
 
@@ -473,106 +487,122 @@
 </head>
 
 <body>
-  <div class="container">
-    
-    <!-- HERO HEADER -->
-    <header class="hero-card">
-      <div class="badge-top">✨ ¡ESTÁS INVITADO! ✨</div>
-      <h1 class="hero-title">Mis 1 Año<br>Giuliano</h1>
-      <p class="hero-subtitle">Te esperamos para celebrar juntos un año lleno de sonrisas, juego y momentos inolvidables.</p>
-    </header>
+  <div style="width:100%;">
+    <!-- TOP CHECKERED FLAG BAR -->
+    <div class="checkered-bar"></div>
 
-    <!-- COUNTDOWN -->
-    <section class="countdown-card">
-      <div class="countdown-title">FALTAN PARA LA CELEBRACIÓN</div>
-      <div class="countdown-grid">
-        <div class="time-box">
-          <span id="dias">00</span>
-          <small>DÍAS</small>
-        </div>
-        <div class="separator">:</div>
-        <div class="time-box">
-          <span id="horas">00</span>
-          <small>HORAS</small>
-        </div>
-        <div class="separator">:</div>
-        <div class="time-box">
-          <span id="minutos">00</span>
-          <small>MINUTOS</small>
-        </div>
-        <div class="separator">:</div>
-        <div class="time-box">
-          <span id="segundos">00</span>
-          <small>SEGUNDOS</small>
-        </div>
-      </div>
-    </section>
+    <div class="container" style="margin-top:1rem;">
 
-    <!-- RSVP CARD -->
-    <section class="rsvp-card">
-      <div class="guest-header">
-        <div class="guest-avatar">📩</div>
-        <h3>Invitación para: <strong id="guestName">Cargando...</strong></h3>
-        <p id="guestCupo">Cargando cupos...</p>
-      </div>
-
-      <div class="rsvp-body">
-        <div id="loading">✨ Cargando tu invitación personalizada...</div>
-        <div id="error-box" style="display:none;"></div>
-        <div id="rsvp-content"></div>
-
-        <div id="already-box" style="display:none;">
-          <span class="state-icon">✅</span>
-          <span id="already-title" class="state-title"></span>
-          <span id="already-sub" class="state-sub"></span>
+      <!-- HERO HEADER CARS -->
+      <header class="hero-card">
+        <div class="cars-emblem">
+          <div class="cars-logo-text">GIULIANO</div>
+          <span class="cars-number">2</span>
         </div>
 
-        <div id="success-confirm" style="display:none;">
-          <span class="state-icon">🎉</span>
-          <span id="sc-title" class="state-title"></span>
-          <span id="sc-sub" class="state-sub"></span>
+        <div style="display:block;">
+          <div class="tagline-badge">🏎️ ¡ENCIENDAN SUS MOTORES! 🏁</div>
         </div>
 
-        <div id="success-decline" style="display:none;">
-          <span class="state-icon">💙</span>
-          <span class="state-title">¡Gracias por avisar!</span>
-          <span class="state-sub">Te vamos a extrañar mucho en la fiesta.</span>
+        <p class="hero-subtitle">
+          Celebramos juntos el <strong>2º Cumpleaños de Giuliano</strong> en el Gran Premio de Pits. ¡No te lo podés perder!
+        </p>
+      </header>
+
+      <!-- COUNTDOWN COPA PISTON -->
+      <section class="countdown-card">
+        <div class="countdown-header">
+          🏆 TIEMPO RESTANTE PARA LA COPA PISTÓN 🏁
         </div>
-      </div>
-    </section>
+        <div class="countdown-grid">
+          <div class="time-box">
+            <span id="dias">00</span>
+            <small>DÍAS</small>
+          </div>
+          <div class="separator">:</div>
+          <div class="time-box">
+            <span id="horas">00</span>
+            <small>HORAS</small>
+          </div>
+          <div class="separator">:</div>
+          <div class="time-box">
+            <span id="minutos">00</span>
+            <small>MINUTOS</small>
+          </div>
+          <div class="separator">:</div>
+          <div class="time-box">
+            <span id="segundos">00</span>
+            <small>SEGUNDOS</small>
+          </div>
+        </div>
+      </section>
 
-    <!-- INFO GRID -->
-    <section class="info-grid">
-      <div class="info-card">
-        <div class="info-icon">📍</div>
-        <h4>UBICACIÓN</h4>
-        <p>Salón de Eventos Amancay<br><small style="color:var(--text-muted)">Barrio San Ramón - Calle Ultima</small></p>
-        <a href="https://maps.app.goo.gl/gQYUdELYaQ8Nciix6?g_st=aw" target="_blank" class="info-btn">
-          Ver en Mapa 🗺️
-        </a>
-      </div>
+      <!-- RSVP PITS CARD -->
+      <section class="rsvp-card">
+        <div class="guest-header">
+          <div class="guest-avatar">🏎️</div>
+          <h3>Piloto Invitado: <strong id="guestName">Cargando...</strong></h3>
+          <p id="guestCupo">Verificando pase a Pits...</p>
+        </div>
 
-      <div class="info-card">
-        <div class="info-icon">🕘</div>
-        <h4>HORARIO</h4>
-        <p style="font-size:16px;font-weight:700;color:var(--gold-light);">18:00 hs</p>
-        <p><small style="color:var(--text-muted)">¡Puntualidad!</small></p>
-      </div>
+        <div class="rsvp-body">
+          <div id="loading">⚡ Cargando datos del circuito...</div>
+          <div id="error-box" style="display:none;"></div>
+          <div id="rsvp-content"></div>
 
-      <div class="info-card">
-        <div class="info-icon">📞</div>
-        <h4>CONTACTO</h4>
-        <p>+595 972 607418</p>
-        <a href="https://wa.me/595972607418" target="_blank" class="info-btn">
-          Enviar WhatsApp 📲
-        </a>
-      </div>
-    </section>
+          <div id="already-box" style="display:none;">
+            <span class="state-icon">🏁</span>
+            <span id="already-title" class="state-title"></span>
+            <span id="already-sub" class="state-sub"></span>
+          </div>
 
-    <footer>
-      Con cariño, 💙 Familia Bogado
-    </footer>
+          <div id="success-confirm" style="display:none;">
+            <span class="state-icon">🏆</span>
+            <span id="sc-title" class="state-title"></span>
+            <span id="sc-sub" class="state-sub"></span>
+          </div>
 
+          <div id="success-decline" style="display:none;">
+            <span class="state-icon">💙</span>
+            <span class="state-title">¡Gracias por avisar!</span>
+            <span class="state-sub">Te vamos a extrañar en la pista de carreras.</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- INFO CIRCUIT CARDS -->
+      <section class="info-grid">
+        <div class="info-card">
+          <div class="info-icon">📍</div>
+          <h4>CIRCUITO</h4>
+          <p>Salón de Eventos Amancay<br><small style="color:var(--text-muted)">Carlos Antonio Lopez y Paseo de Fatima</small></p>
+          <a href="https://maps.app.goo.gl/gQYUdELYaQ8Nciix6?g_st=aw" target="_blank" class="info-btn">
+            Abrir Mapa 🗺️
+          </a>
+        </div>
+
+        <div class="info-card">
+          <div class="info-icon">🚥</div>
+          <h4>BANDERA DE SALIDA</h4>
+          <p style="font-size:13px;font-weight:800;color:var(--mcqueen-yellow);">SÁBADO 07 NOV</p>
+          <p style="font-size:16px;font-weight:900;color:#FFFFFF;">18:00 HS</p>
+        </div>
+
+        <div class="info-card">
+          <div class="info-icon">📞</div>
+          <h4>EQUIPO DE PITS</h4>
+          <p>+595 972 607418</p>
+          <a href="https://wa.me/595972607418" target="_blank" class="info-btn">
+            WhatsApp Pits 📲
+          </a>
+        </div>
+      </section>
+
+      <footer>
+        Con cariño, 💙 Familia Bogado
+      </footer>
+
+    </div>
   </div>
 
   <script>
@@ -598,7 +628,7 @@
         document.getElementById('loading').style.display = 'none';
 
         if (!data.ok) {
-          showError(data.error || 'Token inválido');
+          showError(data.error || 'Token no encontrado');
           return;
         }
 
@@ -612,14 +642,14 @@
       } catch (err) {
         document.getElementById('loading').style.display = 'none';
         console.error(err);
-        showError('Error al conectar con la invitación');
+        showError('Error de conexión con el circuito');
       }
     }
 
     async function confirmar() {
       const btn = document.getElementById('btn-confirm');
       btn.disabled = true;
-      btn.textContent = 'Guardando respuesta...';
+      btn.textContent = 'REGISTRANDO EN PITS...';
 
       const adultos = document.getElementById('sel-adultos') ? Number(document.getElementById('sel-adultos').value) : 0;
       const ninos = document.getElementById('sel-ninos') ? Number(document.getElementById('sel-ninos').value) : 0;
@@ -642,19 +672,19 @@
         if (!result.ok) throw new Error(result.error);
 
         document.getElementById('rsvp-content').style.display = 'none';
-        document.getElementById('sc-title').textContent = `¡Gracias por confirmar, ${invitado.nombre}!`;
+        document.getElementById('sc-title').textContent = `¡CONFIRMADO EN PITS, ${invitado.nombre.toUpperCase()}!`;
         
         let resumenTexto = [];
         if (adultos > 0) resumenTexto.push(`${adultos} adulto(s)`);
         if (ninos > 0) resumenTexto.push(`${ninos} niño(s)`);
         if (ninas > 0) resumenTexto.push(`${ninas} niña(s)`);
         
-        document.getElementById('sc-sub').textContent = 'Confirmaste: ' + (resumenTexto.join(', ') || 'asistencia');
+        document.getElementById('sc-sub').textContent = 'Pases registrados: ' + (resumenTexto.join(', ') || 'asistencia');
         document.getElementById('success-confirm').style.display = 'block';
 
       } catch (err) {
         btn.disabled = false;
-        btn.textContent = '✓ Confirmar asistencia';
+        btn.textContent = '🚥 CONFIRMAR ASISTENCIA';
         showError(err.message || 'No se pudo guardar la respuesta');
       }
     }
@@ -688,20 +718,20 @@
       document.getElementById('guestName').textContent = data.nombre;
       
       const totalMax = (data.cupoAdulto || 0) + (data.cupoNino || 0) + (data.cupoNina || 0);
-      document.getElementById('guestCupo').textContent = `Invitación para hasta ${totalMax} persona(s)`;
+      document.getElementById('guestCupo').textContent = `Pase a Pits para hasta ${totalMax} persona(s)`;
 
       const confirmo = String(data.asistencia).toLowerCase().includes('confirm');
 
       if (confirmo) {
-        document.getElementById('already-title').textContent = `¡Ya confirmaste, ${data.nombre}!`;
+        document.getElementById('already-title').textContent = `¡Ya estás registrado, ${data.nombre}!`;
         let detalle = [];
         if (data.adultoConfirmado > 0) detalle.push(`${data.adultoConfirmado} adulto(s)`);
         if (data.ninoConfirmado > 0) detalle.push(`${data.ninoConfirmado} niño(s)`);
         if (data.ninaConfirmada > 0) detalle.push(`${data.ninaConfirmada} niña(s)`);
-        document.getElementById('already-sub').textContent = 'Anotados: ' + (detalle.join(', ') || 'asistencia');
+        document.getElementById('already-sub').textContent = 'Confirmaste: ' + (detalle.join(', ') || 'asistencia');
       } else {
-        document.getElementById('already-title').textContent = 'Ya registramos tu respuesta';
-        document.getElementById('already-sub').textContent = 'Indicaste que no podrás asistir a la fiesta.';
+        document.getElementById('already-title').textContent = 'Respuesta registrada';
+        document.getElementById('already-sub').textContent = 'Indicaste que no podrás asistir a la carrera.';
       }
 
       box.style.display = 'block';
@@ -710,7 +740,7 @@
     function renderRSVP() {
       document.getElementById('guestName').textContent = invitado.nombre;
       const totalMax = (invitado.cupoAdulto || 0) + (invitado.cupoNino || 0) + (invitado.cupoNina || 0);
-      document.getElementById('guestCupo').textContent = `Invitación para hasta ${totalMax} persona(s)`;
+      document.getElementById('guestCupo').textContent = `Pase a Pits para hasta ${totalMax} persona(s)`;
 
       let selectors = '';
 
@@ -718,7 +748,7 @@
         selectors += `
           <div class="selector-item">
             <div class="selector-label">
-              Adultos
+              👨‍👩‍👧 Adultos
               <small>Máximo ${invitado.cupoAdulto}</small>
             </div>
             <select id="sel-adultos" class="select-input">
@@ -733,7 +763,7 @@
         selectors += `
           <div class="selector-item">
             <div class="selector-label">
-              Niños
+              👦 Niños
               <small>Máximo ${invitado.cupoNino}</small>
             </div>
             <select id="sel-ninos" class="select-input">
@@ -748,7 +778,7 @@
         selectors += `
           <div class="selector-item">
             <div class="selector-label">
-              Niñas
+              👧 Niñas
               <small>Máximo ${invitado.cupoNina}</small>
             </div>
             <select id="sel-ninas" class="select-input">
@@ -760,16 +790,18 @@
       }
 
       document.getElementById('rsvp-content').innerHTML = `
-        <h4 style="font-size:14px;color:var(--gold-light);margin-bottom:8px;text-align:center;">¿Cuántos asistirán?</h4>
+        <h4 style="font-size:14px;color:var(--mcqueen-yellow);margin-bottom:10px;text-align:center;font-weight:700;">
+          CONFIRMA TU ASISTENCIA EN PITS:
+        </h4>
         <div class="selector-group">
           ${selectors}
         </div>
         <div class="action-buttons">
-          <button id="btn-confirm" class="btn-primary" onclick="confirmar()">
-            ✓ Confirmar asistencia
+          <button id="btn-confirm" class="btn-confirm" onclick="confirmar()">
+            🚥 CONFIRMAR ASISTENCIA
           </button>
-          <button class="btn-secondary" onclick="declinar()">
-            ✕ No podré asistir
+          <button class="btn-decline" onclick="declinar()">
+            🔴 NO PODRÉ ASISTIR
           </button>
         </div>
       `;
@@ -781,7 +813,8 @@
     }
 
     function iniciarContador() {
-      const fechaEvento = new Date("2026-06-16T18:00:00");
+      // Fecha objetivo: Sábado 07 de Noviembre a las 18:00 hs
+      const fechaEvento = new Date("2026-11-07T18:00:00");
       setInterval(() => {
         const ahora = new Date();
         const diff = fechaEvento - ahora;
