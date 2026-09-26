@@ -1,7 +1,7 @@
 const PASSWORD = "bogado80";
 
 const API =
-"https://script.google.com/macros/s/AKfycbzbgvhCsJYlkOpj5LZ9WnvqJWFiKsfwzyD768Zg1OdA8cu7m3uWzcfrs-dzD5ai0rn-/exec";
+"https://script.google.com/macros/s/AKfycbx7piUVg84lj80nwA930A4OI8wbZWg0-r0pTwVfumtShDix6NjTWmfTwunpINw7HQA6/exec";
 
 let datosGlobales = [];
 

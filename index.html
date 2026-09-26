@@ -1,772 +1,780 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Invitación — Carlos Bogado</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
-<style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Invitación — Carlos Bogado</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap"
+    rel="stylesheet">
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-  :root {
-    --navy: #0d1b3e;
-    --navy2: #112258;
-    --silver: #b8c4d0;
-    --silver2: #dce6f0;
-    --cream: #f4f2ed;
-    --cream2: #e8e5de;
-    --text-dark: #0d1b3e;
-    --text-mid: #4a5a7a;
-    --text-muted: #8a9ab0;
-  }
+    :root {
+      --navy: #0d1b3e;
+      --navy2: #112258;
+      --silver: #b8c4d0;
+      --silver2: #dce6f0;
+      --cream: #f4f2ed;
+      --cream2: #e8e5de;
+      --text-dark: #0d1b3e;
+      --text-mid: #4a5a7a;
+      --text-muted: #8a9ab0;
+    }
 
-  body {
-    background: var(--navy);
-    font-family: 'Lato', sans-serif;
-    margin: 0;
-    padding: 0;
-    min-height: 100vh;
-  }
+    body {
+      background: var(--navy);
+      font-family: 'Lato', sans-serif;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+    }
 
-  /* ── CONTAINER ── */
-  .container {
-    width: 100%;
-    max-width: 480px;
-    margin: 0 auto;
-  }
+    /* ── CONTAINER ── */
+    .container {
+      width: 100%;
+      max-width: 480px;
+      margin: 0 auto;
+    }
 
-  /* ── HERO / BANNER ── */
-  .hero { width: 100%; }
-  .hero-img {
-    width: 100%;
-    display: block;
-    border-radius: 0 0 16px 16px;
-  }
+    /* ── HERO / BANNER ── */
+    .hero {
+      width: 100%;
+    }
 
-  /* ── COUNTDOWN ── */
-  .countdown-section {
-    background: var(--navy);
-    padding: 1.25rem 1rem 1.5rem;
-    text-align: center;
-  }
+    .hero-img {
+      width: 100%;
+      display: block;
+      border-radius: 0 0 16px 16px;
+    }
 
-  .countdown-section h2 {
-    font-size: 9px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--silver);
-    font-weight: 600;
-    margin-bottom: 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-  }
+    /* ── COUNTDOWN ── */
+    .countdown-section {
+      background: var(--navy);
+      padding: 1.25rem 1rem 1.5rem;
+      text-align: center;
+    }
 
-  .countdown-section h2::before,
-  .countdown-section h2::after {
-    content: '';
-    width: 20px;
-    height: 1px;
-    background: var(--silver);
-    opacity: 0.4;
-  }
+    .countdown-section h2 {
+      font-size: 9px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--silver);
+      font-weight: 600;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
 
-  .countdown {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
-  }
+    .countdown-section h2::before,
+    .countdown-section h2::after {
+      content: '';
+      width: 20px;
+      height: 1px;
+      background: var(--silver);
+      opacity: 0.4;
+    }
 
-  .time-box {
-    background: rgba(255,255,255,0.07);
-    border: 1px solid rgba(200,212,228,0.15);
-    border-radius: 10px;
-    padding: 0.75rem 0;
-    flex: 1;
-    text-align: center;
-  }
+    .countdown {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
 
-  .time-box span {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(28px, 8vw, 40px);
-    font-weight: 700;
-    color: var(--silver2);
-    display: block;
-    line-height: 1;
-  }
+    .time-box {
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(200, 212, 228, 0.15);
+      border-radius: 10px;
+      padding: 0.75rem 0;
+      flex: 1;
+      text-align: center;
+    }
 
-  .time-box small {
-    font-size: 7px;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: var(--silver);
-    display: block;
-    margin-top: 4px;
-    font-weight: 600;
-  }
+    .time-box span {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 8vw, 40px);
+      font-weight: 700;
+      color: var(--silver2);
+      display: block;
+      line-height: 1;
+    }
 
-  .separator {
-    font-family: 'Playfair Display', serif;
-    font-size: 28px;
-    color: var(--silver);
-    opacity: 0.5;
-    margin-bottom: 14px;
-    flex-shrink: 0;
-  }
+    .time-box small {
+      font-size: 7px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--silver);
+      display: block;
+      margin-top: 4px;
+      font-weight: 600;
+    }
 
-  /* ── RSVP CARD ── */
-  .rsvp-card {
-    background: var(--cream2);
-    border-radius: 16px;
-    margin: 8px;
-    overflow: hidden;
-    border: 1px solid rgba(13,27,62,0.08);
-    display: grid;
-    grid-template-columns: 140px 1fr;
-  }
+    .separator {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      color: var(--silver);
+      opacity: 0.5;
+      margin-bottom: 14px;
+      flex-shrink: 0;
+    }
 
-  .guest-panel {
-    background: #fff;
-    padding: 1.5rem 0.85rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    border-right: 1px solid rgba(13,27,62,0.08);
-    gap: 6px;
-  }
+    /* ── RSVP CARD ── */
+    .rsvp-card {
+      background: var(--cream2);
+      border-radius: 16px;
+      margin: 8px;
+      overflow: hidden;
+      border: 1px solid rgba(13, 27, 62, 0.08);
+      display: grid;
+      grid-template-columns: 140px 1fr;
+    }
 
-  .guest-icon {
-    font-size: 28px;
-    margin-bottom: 4px;
-  }
+    .guest-panel {
+      background: #fff;
+      padding: 1.5rem 0.85rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      border-right: 1px solid rgba(13, 27, 62, 0.08);
+      gap: 6px;
+    }
 
-  .guest-panel h3 {
-    font-size: 13px;
-    color: var(--text-mid);
-    font-weight: 400;
-    line-height: 1.5;
-  }
+    .guest-icon {
+      font-size: 28px;
+      margin-bottom: 4px;
+    }
 
-  .guest-panel h3 span {
-    font-size: 17px;
-    font-weight: 700;
-    color: var(--navy);
-    font-family: 'Playfair Display', serif;
-    display: block;
-  }
+    .guest-panel h3 {
+      font-size: 13px;
+      color: var(--text-mid);
+      font-weight: 400;
+      line-height: 1.5;
+    }
 
-  .guest-panel p {
-    font-size: 11px;
-    color: var(--text-muted);
-    line-height: 1.5;
-  }
+    .guest-panel h3 span {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--navy);
+      font-family: 'Playfair Display', serif;
+      display: block;
+    }
 
-  .guest-max {
-    font-size: 10px;
-    color: var(--text-mid);
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    justify-content: center;
-  }
+    .guest-panel p {
+      font-size: 11px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
 
-  .rsvp-panel {
-    padding: 1.25rem 1rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
+    .guest-max {
+      font-size: 10px;
+      color: var(--text-mid);
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      justify-content: center;
+    }
 
-  #loading {
-    font-size: 12px;
-    color: var(--text-muted);
-    text-align: center;
-    padding: 1rem 0;
-  }
+    .rsvp-panel {
+      padding: 1.25rem 1rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
 
-  /* RSVP content injected by renderRSVP */
-  #rsvp-content h2 {
-    font-size: 14px;
-    font-weight: 700;
-    color: var(--navy);
-    margin-bottom: 2px;
-  }
+    #loading {
+      font-size: 12px;
+      color: var(--text-muted);
+      text-align: center;
+      padding: 1rem 0;
+    }
 
-  #rsvp-content p {
-    font-size: 11px;
-    color: var(--text-muted);
-    margin-bottom: 0.85rem;
-  }
+    /* RSVP content injected by renderRSVP */
+    #rsvp-content h2 {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 2px;
+    }
 
-  .person-grid {
-    display: flex;
-    gap: 6px;
-    margin-bottom: 0.85rem;
-    flex-wrap: wrap;
-  }
+    #rsvp-content p {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-bottom: 0.85rem;
+    }
 
-  .person-btn {
-    flex: 1;
-    min-width: 52px;
-    padding: 10px 4px;
-    border-radius: 10px;
-    font-size: 11px;
-    font-weight: 600;
-    cursor: pointer;
-    border: 1.5px solid rgba(13,27,62,0.18);
-    background: #fff;
-    color: var(--navy);
-    font-family: 'Lato', sans-serif;
-    transition: all 0.15s;
-    text-align: center;
-  }
+    .person-grid {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 0.85rem;
+      flex-wrap: wrap;
+    }
 
-  .person-btn:hover { border-color: var(--navy); background: rgba(13,27,62,0.04); }
+    .person-btn {
+      flex: 1;
+      min-width: 52px;
+      padding: 10px 4px;
+      border-radius: 10px;
+      font-size: 11px;
+      font-weight: 600;
+      cursor: pointer;
+      border: 1.5px solid rgba(13, 27, 62, 0.18);
+      background: #fff;
+      color: var(--navy);
+      font-family: 'Lato', sans-serif;
+      transition: all 0.15s;
+      text-align: center;
+    }
 
-  .person-btn.selected {
-    background: #0B2E83;
-    color: #fff;
-    border-color: #0B2E83;
-  }
+    .person-btn:hover {
+      border-color: var(--navy);
+      background: rgba(13, 27, 62, 0.04);
+    }
 
-  .action-buttons {
-    display: flex;
-    gap: 6px;
-  }
+    .person-btn.selected {
+      background: #0B2E83;
+      color: #fff;
+      border-color: #0B2E83;
+    }
 
-  .btn-primary {
-    flex: 1;
-    padding: 11px 8px;
-    border-radius: 10px;
-    font-size: 11px;
-    font-weight: 700;
-    cursor: pointer;
-    border: none;
-    background: var(--navy);
-    color: var(--silver2);
-    font-family: 'Lato', sans-serif;
-    transition: all 0.2s;
-    letter-spacing: 0.3px;
-  }
+    .action-buttons {
+      display: flex;
+      gap: 6px;
+    }
 
-  .btn-primary:hover:not(:disabled) { background: var(--navy2); }
-  .btn-primary:disabled { opacity: 0.3; cursor: not-allowed; }
+    .btn-primary {
+      flex: 1;
+      padding: 11px 8px;
+      border-radius: 10px;
+      font-size: 11px;
+      font-weight: 700;
+      cursor: pointer;
+      border: none;
+      background: var(--navy);
+      color: var(--silver2);
+      font-family: 'Lato', sans-serif;
+      transition: all 0.2s;
+      letter-spacing: 0.3px;
+    }
 
-  .btn-secondary {
-    padding: 11px 10px;
-    border-radius: 10px;
-    font-size: 11px;
-    font-weight: 600;
-    cursor: pointer;
-    border: 1.5px solid rgba(13,27,62,0.2);
-    background: #fff;
-    color: var(--text-mid);
-    font-family: 'Lato', sans-serif;
-    transition: all 0.15s;
-    white-space: nowrap;
-  }
+    .btn-primary:hover:not(:disabled) {
+      background: var(--navy2);
+    }
 
-  .btn-secondary:hover { background: var(--cream2); color: var(--navy); }
+    .btn-primary:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+    }
 
-  /* States */
-  #already-box, #success-confirm, #success-decline {
-    text-align: center;
-    padding: 1rem 0.5rem;
-    border-radius: 10px;
-    font-size: 13px;
-    color: var(--navy);
-  }
+    .btn-secondary {
+      padding: 11px 10px;
+      border-radius: 10px;
+      font-size: 11px;
+      font-weight: 600;
+      cursor: pointer;
+      border: 1.5px solid rgba(13, 27, 62, 0.2);
+      background: #fff;
+      color: var(--text-mid);
+      font-family: 'Lato', sans-serif;
+      transition: all 0.15s;
+      white-space: nowrap;
+    }
 
-  #error-box {
-    background: rgba(226,75,74,0.08);
-    border: 1px solid rgba(226,75,74,0.2);
-    border-radius: 10px;
-    padding: 0.75rem;
-    font-size: 12px;
-    color: #b03030;
-    text-align: center;
-  }
+    .btn-secondary:hover {
+      background: var(--cream2);
+      color: var(--navy);
+    }
 
-  /* ── INFO GRID ── */
-  .info-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 8px;
-    padding: 0 8px 8px;
-  }
+    /* States */
+    #already-box,
+    #success-confirm,
+    #success-decline {
+      text-align: center;
+      padding: 1rem 0.5rem;
+      border-radius: 10px;
+      font-size: 13px;
+      color: var(--navy);
+    }
 
-  .info-card {
-    background: rgba(255,255,255,0.07);
-    border: 1px solid rgba(200,212,228,0.12);
-    border-radius: 14px;
-    padding: 1rem 0.65rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 4px;
-    text-align: center;
-  }
+    #error-box {
+      background: rgba(226, 75, 74, 0.08);
+      border: 1px solid rgba(226, 75, 74, 0.2);
+      border-radius: 10px;
+      padding: 0.75rem;
+      font-size: 12px;
+      color: #b03030;
+      text-align: center;
+    }
 
-  .info-card h4 {
-    font-size: 7px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    color: var(--silver);
-    font-weight: 600;
-    line-height: 1.4;
-  }
+    /* ── INFO GRID ── */
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 8px;
+      padding: 0 8px 8px;
+    }
 
-  .info-card p {
-    font-size: 11px;
-    color: var(--silver2);
-    font-weight: 500;
-    line-height: 1.3;
-  }
+    .info-card {
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(200, 212, 228, 0.12);
+      border-radius: 14px;
+      padding: 1rem 0.65rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      text-align: center;
+    }
 
-  .hour {
-    font-size: 16px;
-    font-weight: 700;
-    color: var(--silver2);
-  }
+    .info-card h4 {
+      font-size: 7px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--silver);
+      font-weight: 600;
+      line-height: 1.4;
+    }
 
-  .phone {
-    font-size: 11px;
-    font-weight: 600;
-    color: var(--silver2);
-    line-height: 1.4;
-  }
+    .info-card p {
+      font-size: 11px;
+      color: var(--silver2);
+      font-weight: 500;
+      line-height: 1.3;
+    }
 
-  .info-card small {
-    font-size: 11px;
-    font-style: italic;
-    color: var(--silver);
-  }
+    .hour {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--silver2);
+    }
 
-  .info-btn {
-    margin-top: 6px;
-    padding: 7px 8px;
-    border-radius: 8px;
-    font-size: 10px;
-    font-weight: 600;
-    cursor: pointer;
-    border: 1px solid rgba(200,212,228,0.2);
-    background: var(--navy2);
-    color: var(--silver2);
-    font-family: 'Lato', sans-serif;
-    text-decoration: none;
-    display: block;
-    width: 100%;
-    text-align: center;
-    transition: all 0.15s;
-  }
+    .phone {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--silver2);
+      line-height: 1.4;
+    }
 
-  .info-btn:hover { background: rgba(255,255,255,0.12); }
+    .info-card small {
+      font-size: 11px;
+      font-style: italic;
+      color: var(--silver);
+    }
 
-  /* ── FOOTER ── */
-  footer {
-    padding: 0.9rem 1rem 1.4rem;
-    text-align: center;
-    font-size: 13px;
-    font-style: italic;
-    color: var(--silver);
-    font-family: 'Playfair Display', serif;
-  }
+    .info-btn {
+      margin-top: 6px;
+      padding: 7px 8px;
+      border-radius: 8px;
+      font-size: 10px;
+      font-weight: 600;
+      cursor: pointer;
+      border: 1px solid rgba(200, 212, 228, 0.2);
+      background: var(--navy2);
+      color: var(--silver2);
+      font-family: 'Lato', sans-serif;
+      text-decoration: none;
+      display: block;
+      width: 100%;
+      text-align: center;
+      transition: all 0.15s;
+    }
 
-  /* ── MOBILE ── */
-  @media (max-width: 400px) {
-    .rsvp-card { grid-template-columns: 120px 1fr; }
-    .guest-panel { padding: 1.25rem 0.6rem; }
-    .guest-panel h3 span { font-size: 15px; }
-    .info-card h4 { font-size: 6.5px; }
-    .info-card p, .phone { font-size: 10px; }
-    .info-btn { font-size: 9px; padding: 6px 4px; }
-    .hour { font-size: 14px; }
-  }
-</style>
+    .info-btn:hover {
+      background: rgba(255, 255, 255, 0.12);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 0.9rem 1rem 1.4rem;
+      text-align: center;
+      font-size: 13px;
+      font-style: italic;
+      color: var(--silver);
+      font-family: 'Playfair Display', serif;
+    }
+
+    /* ── MOBILE ── */
+    @media (max-width: 400px) {
+      .rsvp-card {
+        grid-template-columns: 120px 1fr;
+      }
+
+      .guest-panel {
+        padding: 1.25rem 0.6rem;
+      }
+
+      .guest-panel h3 span {
+        font-size: 15px;
+      }
+
+      .info-card h4 {
+        font-size: 6.5px;
+      }
+
+      .info-card p,
+      .phone {
+        font-size: 10px;
+      }
+
+      .info-btn {
+        font-size: 9px;
+        padding: 6px 4px;
+      }
+
+      .hour {
+        font-size: 14px;
+      }
+    }
+  </style>
 </head>
+
 <body>
-<div class="container">
-  <!-- BANNER -->
-  <section class="hero">
-    <img
-      src="invitacion.png"
-      alt="Invitación Carlos Bogado"
-      class="hero-img"
-    >
-  </section>
-  <!-- CONTADOR -->
-  <section class="countdown-section">
-    <h2>FALTAN PARA LA CELEBRACIÓN</h2>
-    <div class="countdown">
-      <div class="time-box">
-        <span id="dias">00</span>
-        <small>DÍAS</small>
+  <div class="container">
+    <!-- BANNER -->
+    <section class="hero">
+      <img src="invitacion.png" alt="Invitación Carlos Bogado" class="hero-img">
+    </section>
+    <!-- CONTADOR -->
+    <section class="countdown-section">
+      <h2>FALTAN PARA LA CELEBRACIÓN</h2>
+      <div class="countdown">
+        <div class="time-box">
+          <span id="dias">00</span>
+          <small>DÍAS</small>
+        </div>
+        <div class="separator">:</div>
+        <div class="time-box">
+          <span id="horas">00</span>
+          <small>HORAS</small>
+        </div>
+        <div class="separator">:</div>
+        <div class="time-box">
+          <span id="minutos">00</span>
+          <small>MINUTOS</small>
+        </div>
+        <div class="separator">:</div>
+        <div class="time-box">
+          <span id="segundos">00</span>
+          <small>SEGUNDOS</small>
+        </div>
       </div>
-      <div class="separator">:</div>
-      <div class="time-box">
-        <span id="horas">00</span>
-        <small>HORAS</small>
+    </section>
+    <!-- RSVP -->
+    <section class="rsvp-card">
+      <div class="guest-panel">
+        <div class="guest-icon">
+          <svg width="56" height="56" viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg">
+            <!-- Círculo fondo -->
+            <circle cx="28" cy="28" r="27" fill="#f0f2f8" stroke="#dde2f0" stroke-width="1" />
+            <!-- Cuerpo del sobre -->
+            <rect x="10" y="17" width="36" height="24" rx="3" fill="none" stroke="#0d1b3e" stroke-width="2" />
+            <!-- Solapa superior (V) -->
+            <polyline points="10,17 28,30 46,17" fill="none" stroke="#0d1b3e" stroke-width="2"
+              stroke-linejoin="round" />
+            <!-- Corazón esquina inferior derecha -->
+            <path
+              d="M38,34 C38,34 33,30 33,27.5 C33,26 34.2,25 35.5,25.5 C36.5,25.8 38,27 38,27 C38,27 39.5,25.8 40.5,25.5 C41.8,25 43,26 43,27.5 C43,30 38,34 38,34Z"
+              fill="#0d1b3e" />
+          </svg>
+        </div>
+        <h3>
+          Hola,<br>
+          <span id="guestName">Invitado</span>
+        </h3>
+        <p id="guestCupo">
+          Tu invitación es para hasta 1 persona.
+        </p>
+        <div class="guest-max">
+          👥 Máximo <span id="guestMax">1</span> personas
+        </div>
       </div>
-      <div class="separator">:</div>
-      <div class="time-box">
-        <span id="minutos">00</span>
-        <small>MINUTOS</small>
+      <div class="rsvp-panel">
+        <div id="loading">
+          Cargando invitación...
+        </div>
+        <div id="rsvp-content"></div>
+        <div id="already-box" style="display:none;">
+          <span style="font-size:28px;display:block;margin-bottom:6px;">✓</span>
+          <span id="already-title"
+            style="font-size:15px;font-weight:700;color:#0d1b3e;display:block;margin-bottom:4px;"></span>
+          <span id="already-sub" style="font-size:12px;color:#8a9ab0;display:block;"></span>
+        </div>
+        <div id="error-box" style="display:none;"></div>
+        <div id="success-confirm" style="display:none;">
+          <span style="font-size:28px;display:block;margin-bottom:6px;">🎉</span>
+          <span id="sc-title"
+            style="font-size:15px;font-weight:700;color:#0d1b3e;display:block;margin-bottom:4px;"></span>
+          <span id="sc-sub" style="font-size:12px;color:#8a9ab0;display:block;"></span>
+        </div>
+        <div id="success-decline" style="display:none;">
+          <span style="font-size:28px;display:block;margin-bottom:6px;">💙</span>
+          <span style="font-size:15px;font-weight:700;color:#0d1b3e;display:block;margin-bottom:4px;">¡Gracias por
+            avisar!</span>
+          <span style="font-size:12px;color:#8a9ab0;display:block;">Te vamos a extrañar en la fiesta.</span>
+        </div>
       </div>
-      <div class="separator">:</div>
-      <div class="time-box">
-        <span id="segundos">00</span>
-        <small>SEGUNDOS</small>
+    </section>
+    <!-- INFO -->
+    <section class="info-grid">
+      <div class="info-card">
+        <h4>📍 UBICACIÓN</h4>
+        <p>Salón de Eventos Amancay</p>
+        <p>Barrio San Ramón - Calle Ultima</p>
+        <a href="https://maps.app.goo.gl/gQYUdELYaQ8Nciix6?g_st=aw" target="_blank" class="info-btn">
+          Abrir ubicación
+        </a>
       </div>
-    </div>
-  </section>
-  <!-- RSVP -->
-  <section class="rsvp-card">
-    <div class="guest-panel">
-      <div class="guest-icon">
-	  <svg width="56" height="56" viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg">
-          <!-- Círculo fondo -->
-          <circle cx="28" cy="28" r="27" fill="#f0f2f8" stroke="#dde2f0" stroke-width="1"/>
-          <!-- Cuerpo del sobre -->
-          <rect x="10" y="17" width="36" height="24" rx="3" fill="none" stroke="#0d1b3e" stroke-width="2"/>
-          <!-- Solapa superior (V) -->
-          <polyline points="10,17 28,30 46,17" fill="none" stroke="#0d1b3e" stroke-width="2" stroke-linejoin="round"/>
-          <!-- Corazón esquina inferior derecha -->
-          <path d="M38,34 C38,34 33,30 33,27.5 C33,26 34.2,25 35.5,25.5 C36.5,25.8 38,27 38,27 C38,27 39.5,25.8 40.5,25.5 C41.8,25 43,26 43,27.5 C43,30 38,34 38,34Z" fill="#0d1b3e"/>
-        </svg>
-	  </div>
-      <h3>
-        Hola,<br>
-        <span id="guestName">Invitado</span>
-      </h3>
-      <p id="guestCupo">
-        Tu invitación es para hasta 1 persona.
-      </p>
-      <div class="guest-max">
-        👥 Máximo <span id="guestMax">1</span> personas
+      <div class="info-card">
+        <h4>🕘 HORARIO</h4>
+        <div class="hour">
+          18:00 hs
+        </div>
+        <small>¡Nos vemos allí!</small>
       </div>
-    </div>
-    <div class="rsvp-panel">
-      <div id="loading">
-        Cargando invitación...
+      <div class="info-card">
+        <h4>📞 CONTACTO DE LA ORGANIZACIÓN</h4>
+        <div class="phone">
+          +595 972 607418
+        </div>
+        <a href="https://wa.me/595972607418" target="_blank" class="info-btn">
+          Consultar por WhatsApp
+        </a>
       </div>
-      <div id="rsvp-content"></div>
-      <div id="already-box" style="display:none;">
-        <span style="font-size:28px;display:block;margin-bottom:6px;">✓</span>
-        <span id="already-title" style="font-size:15px;font-weight:700;color:#0d1b3e;display:block;margin-bottom:4px;"></span>
-        <span id="already-sub" style="font-size:12px;color:#8a9ab0;display:block;"></span>
-      </div>
-      <div id="error-box" style="display:none;"></div>
-      <div id="success-confirm" style="display:none;">
-        <span style="font-size:28px;display:block;margin-bottom:6px;">🎉</span>
-        <span id="sc-title" style="font-size:15px;font-weight:700;color:#0d1b3e;display:block;margin-bottom:4px;"></span>
-        <span id="sc-sub" style="font-size:12px;color:#8a9ab0;display:block;"></span>
-      </div>
-      <div id="success-decline" style="display:none;">
-        <span style="font-size:28px;display:block;margin-bottom:6px;">💙</span>
-        <span style="font-size:15px;font-weight:700;color:#0d1b3e;display:block;margin-bottom:4px;">¡Gracias por avisar!</span>
-        <span style="font-size:12px;color:#8a9ab0;display:block;">Te vamos a extrañar en la fiesta.</span>
-      </div>
-    </div>
-  </section>
-  <!-- INFO -->
-  <section class="info-grid">
-    <div class="info-card">
-      <h4>📍 UBICACIÓN</h4>
-      <p>Quinta Nanawa</p>
-      <p>Av. San José</p>
-      <a
-        href="https://maps.app.goo.gl/WWWqQ9ujVFghY6dE6?g_st=ic"
-        target="_blank"
-        class="info-btn"
-      >
-        Abrir ubicación
-      </a>
-    </div>
-    <div class="info-card">
-      <h4>🕘 HORARIO</h4>
-      <div class="hour">
-        21:00 hs
-      </div>
-      <small>¡Nos vemos allí!</small>
-    </div>
-    <div class="info-card">
-      <h4>📞 CONTACTO DE LA ORGANIZACIÓN</h4>
-      <div class="phone">
-        +595 972 607418
-      </div>
-      <a
-        href="https://wa.me/595972607418"
-        target="_blank"
-        class="info-btn"
-      >
-        Consultar por WhatsApp
-      </a>
-    </div>
-  </section>
-  <footer>
-    Con cariño, 💙 Familia Bogado
-  </footer>
-</div>
+    </section>
+    <footer>
+      Con cariño, 💙 Familia Bogado
+    </footer>
+  </div>
 
-<script>
-const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx1Dx8DOFtmbGv8qBoeCIZfC4EmGaY93abznv6IAbyHlmklTm0Wi-CzBoThkUPWQGAX/exec';
+  <script>
+    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx7piUVg84lj80nwA930A4OI8wbZWg0-r0pTwVfumtShDix6NjTWmfTwunpINw7HQA6/exec';
 
-function getParam(name) {
-  return new URLSearchParams(window.location.search).get(name);
-}
-
-const TOKEN = getParam('token');
-
-let invitado = null;
-let personas = null;
-
-async function init() {
-
-  if (!TOKEN) {
-    document.getElementById('loading').style.display = 'none';
-    showError('Token inválido');
-    return;
-  }
-
-  try {
-
-    const res = await fetch(
-      `${SCRIPT_URL}?token=${encodeURIComponent(TOKEN)}`
-    );
-
-    const data = await res.json();
-
-    document.getElementById('loading').style.display = 'none';
-
-    if (!data.ok) {
-      showError(data.error);
-      return;
+    function getParam(name) {
+      return new URLSearchParams(window.location.search).get(name);
     }
 
-    invitado = data;
+    const TOKEN = getParam('token');
 
-    if (data.yaRespondio) {
-      showAlready(data);
-    } else {
-      renderRSVP();
+    let invitado = null;
+
+    async function init() {
+      if (!TOKEN) {
+        document.getElementById('loading').style.display = 'none';
+        showError('Token inválido');
+        return;
+      }
+
+      try {
+        const res = await fetch(`${SCRIPT_URL}?token=${encodeURIComponent(TOKEN)}`);
+        const data = await res.json();
+        document.getElementById('loading').style.display = 'none';
+
+        if (!data.ok) {
+          showError(data.error);
+          return;
+        }
+
+        invitado = data;
+
+        if (data.yaRespondio) {
+          showAlready(data);
+        } else {
+          renderRSVP();
+        }
+      } catch (err) {
+        document.getElementById('loading').style.display = 'none';
+        console.error(err);
+        showError(err.message || 'Error al cargar invitación');
+      }
     }
 
-  } catch (err) {
-    document.getElementById('loading').style.display = 'none';
-    console.error(err); showError(err.message || 'Error al cargar invitación');
-  }
-}
+    async function confirmar() {
+      const btn = document.getElementById('btn-confirm');
+      btn.disabled = true;
+      btn.textContent = 'Enviando...';
 
-async function confirmar() {
+      const adultos = document.getElementById('sel-adultos') ? Number(document.getElementById('sel-adultos').value) : 0;
+      const ninos = document.getElementById('sel-ninos') ? Number(document.getElementById('sel-ninos').value) : 0;
+      const ninas = document.getElementById('sel-ninas') ? Number(document.getElementById('sel-ninas').value) : 0;
 
-  if (!personas) return;
+      try {
+        const response = await fetch(SCRIPT_URL, {
+          method: 'POST',
+          body: JSON.stringify({
+            token: TOKEN,
+            id: invitado.id,
+            asistencia: 'Confirma',
+            adultos: adultos,
+            ninos: ninos,
+            ninas: ninas
+          })
+        });
 
-  const btn = document.getElementById('btn-confirm');
+        const result = await response.json();
+        if (!result.ok) throw new Error(result.error);
 
-  btn.disabled = true;
-  btn.textContent = 'Enviando...';
+        document.getElementById('rsvp-content').style.display = 'none';
+        document.getElementById('sc-title').textContent = `¡Gracias, ${invitado.nombre}!`;
+        
+        let resumenTexto = [];
+        if (adultos > 0) resumenTexto.push(`${adultos} adulto(s)`);
+        if (ninos > 0) resumenTexto.push(`${ninos} niño(s)`);
+        if (ninas > 0) resumenTexto.push(`${ninas} niña(s)`);
+        
+        document.getElementById('sc-sub').textContent = 'Anotamos: ' + (resumenTexto.join(', ') || 'tu lugar');
+        document.getElementById('success-confirm').style.display = 'block';
 
-  try {
-
-    const response = await fetch(SCRIPT_URL, {
-      method: 'POST',
-      body: JSON.stringify({
-        token: TOKEN,
-        id: invitado.id,
-        nombre: invitado.nombre,
-        personas: personas,
-        asistencia: 'Confirma'
-      })
-    });
-
-    const result = await response.json();
-
-    if (!result.ok) {
-      throw new Error(result.error);
+      } catch (err) {
+        btn.disabled = false;
+        btn.textContent = '✓ Confirmar asistencia';
+        showError(err.message || 'No se pudo guardar');
+      }
     }
 
-    document.getElementById('rsvp-content').style.display = 'none';
+    async function declinar() {
+      try {
+        const response = await fetch(SCRIPT_URL, {
+          method: 'POST',
+          body: JSON.stringify({
+            token: TOKEN,
+            id: invitado.id,
+            asistencia: 'No asiste',
+            adultos: 0,
+            ninos: 0,
+            ninas: 0
+          })
+        });
 
-    document.getElementById('sc-title').textContent =
-      `¡Gracias, ${invitado.nombre}!`;
+        const result = await response.json();
+        if (!result.ok) throw new Error(result.error);
 
-    document.getElementById('sc-sub').textContent =
-      personas === 1
-        ? 'Anotamos tu lugar.'
-        : `Anotamos ${personas} lugares.`;
-
-    document.getElementById('success-confirm').style.display = 'block';
-
-  } catch (err) {
-
-    btn.disabled = false;
-    btn.textContent = '✓ Confirmar asistencia';
-
-    showError(err.message || 'No se pudo guardar');
-  }
-}
-
-async function declinar() {
-
-  try {
-
-    const response = await fetch(SCRIPT_URL, {
-      method: 'POST',
-      body: JSON.stringify({
-        token: TOKEN,
-        id: invitado.id,
-        nombre: invitado.nombre,
-        personas: 0,
-        asistencia: 'No asiste'
-      })
-    });
-
-    const result = await response.json();
-
-    if (!result.ok) {
-      throw new Error(result.error);
+        document.getElementById('rsvp-content').style.display = 'none';
+        document.getElementById('success-decline').style.display = 'block';
+      } catch (err) {
+        showError(err.message || 'No se pudo guardar');
+      }
     }
 
-    document.getElementById('rsvp-content').style.display = 'none';
-    document.getElementById('success-decline').style.display = 'block';
+    function showAlready(data) {
+      const box = document.getElementById('already-box');
+      document.getElementById('guestName').textContent = data.nombre;
+      
+      const totalMax = (data.cupoAdulto || 0) + (data.cupoNino || 0) + (data.cupoNina || 0);
+      document.getElementById('guestCupo').textContent = `Tu invitación es para hasta ${totalMax} personas.`;
+      document.getElementById('guestMax').textContent = totalMax;
 
-  } catch (err) {
-    showError(err.message || 'No se pudo guardar');
-  }
-}
+      const confirmo = String(data.asistencia).toLowerCase().includes('confirm');
 
+      if (confirmo) {
+        document.getElementById('already-title').textContent = `¡Ya confirmaste, ${data.nombre}!`;
+        let detalle = [];
+        if (data.adultoConfirmado > 0) detalle.push(`${data.adultoConfirmado} adulto(s)`);
+        if (data.ninoConfirmado > 0) detalle.push(`${data.ninoConfirmado} niño(s)`);
+        if (data.ninaConfirmada > 0) detalle.push(`${data.ninaConfirmada} niña(s)`);
+        document.getElementById('already-sub').textContent = 'Confirmaste: ' + (detalle.join(', ') || 'asistencia');
+      } else {
+        document.getElementById('already-title').textContent = 'Ya registramos tu respuesta';
+        document.getElementById('already-sub').textContent = 'Indicaste que no podrás asistir.';
+      }
 
-function showAlready(data) {
+      box.style.display = 'block';
+    }
 
-  const box = document.getElementById('already-box');
+    function renderRSVP() {
+      document.getElementById('guestName').textContent = invitado.nombre;
+      const totalMax = (invitado.cupoAdulto || 0) + (invitado.cupoNino || 0) + (invitado.cupoNina || 0);
+      document.getElementById('guestCupo').textContent = `Tu invitación es para hasta ${totalMax} personas.`;
+      document.getElementById('guestMax').textContent = totalMax;
 
-  // Actualizar panel izquierdo
-  document.getElementById('guestName').textContent = data.nombre;
-  const cupo = parseInt(data.cupo) || 1;
-  document.getElementById('guestCupo').textContent =
-    `Tu invitación es para hasta ${cupo} ${cupo === 1 ? 'persona' : 'personas'}.`;
-  document.getElementById('guestMax').textContent = cupo;
+      let selectHtml = '';
 
-  const confirmo =
-    String(data.asistencia).toLowerCase().includes('confirm');
+      if (invitado.cupoAdulto > 0) {
+        selectHtml += `
+          <div style="margin-bottom:8px;text-align:left;">
+            <label style="font-size:12px;font-weight:600;display:block;margin-bottom:2px;">Adultos (máx. ${invitado.cupoAdulto}):</label>
+            <select id="sel-adultos" style="width:100%;padding:6px;border-radius:6px;border:1px solid #ccc;">
+        `;
+        for (let i = 1; i <= invitado.cupoAdulto; i++) {
+          selectHtml += `<option value="${i}" ${i === invitado.cupoAdulto ? 'selected' : ''}>${i} adulto(s)</option>`;
+        }
+        selectHtml += `</select></div>`;
+      }
 
-  const p = parseInt(data.personas) || 0;
+      if (invitado.cupoNino > 0) {
+        selectHtml += `
+          <div style="margin-bottom:8px;text-align:left;">
+            <label style="font-size:12px;font-weight:600;display:block;margin-bottom:2px;">Niños (máx. ${invitado.cupoNino}):</label>
+            <select id="sel-ninos" style="width:100%;padding:6px;border-radius:6px;border:1px solid #ccc;">
+        `;
+        for (let i = 0; i <= invitado.cupoNino; i++) {
+          selectHtml += `<option value="${i}" ${i === invitado.cupoNino ? 'selected' : ''}>${i} niño(s)</option>`;
+        }
+        selectHtml += `</select></div>`;
+      }
 
-  if (confirmo) {
+      if (invitado.cupoNina > 0) {
+        selectHtml += `
+          <div style="margin-bottom:8px;text-align:left;">
+            <label style="font-size:12px;font-weight:600;display:block;margin-bottom:2px;">Niñas (máx. ${invitado.cupoNina}):</label>
+            <select id="sel-ninas" style="width:100%;padding:6px;border-radius:6px;border:1px solid #ccc;">
+        `;
+        for (let i = 0; i <= invitado.cupoNina; i++) {
+          selectHtml += `<option value="${i}" ${i === invitado.cupoNina ? 'selected' : ''}>${i} niña(s)</option>`;
+        }
+        selectHtml += `</select></div>`;
+      }
 
-    document.getElementById('already-title').textContent =
-      '¡Ya confirmaste, ' + data.nombre + '!';
+      document.getElementById('rsvp-content').innerHTML = `
+        <h2 style="font-size:14px;margin-bottom:4px;">Confirmar Asistencia</h2>
+        <p style="font-size:11px;color:#666;margin-bottom:8px;">Selecciona la cantidad de asistentes:</p>
+        ${selectHtml}
+        <div class="action-buttons" style="margin-top:12px;">
+          <button id="btn-confirm" class="btn-primary" onclick="confirmar()">
+            ✓ Confirmar asistencia
+          </button>
+          <button class="btn-secondary" onclick="declinar()">
+            ✕ No podré asistir
+          </button>
+        </div>
+      `;
+    }
 
-    document.getElementById('already-sub').textContent =
-      p === 1 ? 'Anotaste 1 lugar.' : 'Anotaste ' + p + ' lugares.';
+    function showError(msg) {
+      document.getElementById('error-box').textContent = '⚠ ' + msg;
+      document.getElementById('error-box').style.display = 'block';
+    }
 
-  } else {
+    function iniciarContador() {
+      const fechaEvento = new Date("2026-06-16T18:00:00");
+      setInterval(() => {
+        const ahora = new Date();
+        const diff = fechaEvento - ahora;
+        if (diff <= 0) return;
+        const dias = Math.floor(diff / 86400000);
+        const horas = Math.floor((diff % 86400000) / 3600000);
+        const minutos = Math.floor((diff % 3600000) / 60000);
+        const segundos = Math.floor((diff % 60000) / 1000);
+        document.getElementById('dias').textContent = dias;
+        document.getElementById('horas').textContent = horas;
+        document.getElementById('minutos').textContent = minutos;
+        document.getElementById('segundos').textContent = segundos;
+      }, 1000);
+    }
+    iniciarContador();
 
-    document.getElementById('already-title').textContent =
-      'Ya registramos tu respuesta';
-
-    document.getElementById('already-sub').textContent =
-      'Indicaste que no podrás asistir.';
-  }
-
-  box.style.display = 'block';
-}
-
-function renderRSVP() {
-  const cupo = parseInt(invitado.cupo);
-  document.getElementById('guestName').textContent =
-    invitado.nombre;
-  document.getElementById('guestCupo').textContent =
-    `Tu invitación es para hasta ${cupo} personas.`;
-  document.getElementById('guestMax').textContent =
-    cupo;
-  let botones = '';
-  for(let i=1;i<=cupo;i++){
-    botones += `
-      <button
-        class="person-btn"
-        onclick="seleccionar(${i},this)"
-      >
-        ${i===1 ? 'Solo yo' : i+' personas'}
-      </button>
-    `;
-  }
-  document.getElementById('rsvp-content').innerHTML = `
-    <h2>¿Cuántos asistirán?</h2>
-    <p>
-      Seleccioná la cantidad de personas
-    </p>
-    <div class="person-grid">
-      ${botones}
-    </div>
-    <div class="action-buttons">
-      <button
-        id="btn-confirm"
-        class="btn-primary"
-        onclick="confirmar()"
-        disabled
-      >
-        ✓ Confirmar asistencia
-      </button>
-      <button
-        class="btn-secondary"
-        onclick="declinar()"
-      >
-        ✕ No podré asistir
-      </button>
-    </div>
-  `;
-}
-
-function seleccionar(n, btn) {
-
-  personas = n;
-
-  document
-    .querySelectorAll('.person-btn')
-    .forEach(b => b.classList.remove('selected'));
-
-  btn.classList.add('selected');
-
-  document.getElementById('btn-confirm').disabled = false;
-}
-
-
-function showError(msg) {
-  document.getElementById('error-box').textContent = '⚠ ' + msg;
-  document.getElementById('error-box').style.display = 'block';
-}
-
-function iniciarContador(){
-  const fechaEvento =
-    new Date("2026-06-16T21:00:00");
-  setInterval(()=>{
-    const ahora=new Date();
-    const diff=fechaEvento-ahora;
-    if(diff<=0)return;
-    const dias=Math.floor(diff/86400000);
-    const horas=Math.floor(
-      (diff%86400000)/3600000
-    );
-    const minutos=Math.floor(
-      (diff%3600000)/60000
-    );
-    const segundos=Math.floor(
-      (diff%60000)/1000
-    );
-    document.getElementById('dias').textContent=dias;
-    document.getElementById('horas').textContent=horas;
-    document.getElementById('minutos').textContent=minutos;
-    document.getElementById('segundos').textContent=segundos;
-  },1000);
-}
-iniciarContador();
-
-init();
-</script>
+    init();
+  </script>
 </body>
+
 </html>
