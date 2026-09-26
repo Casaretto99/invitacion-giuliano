@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Invitación — Cumpleaños de Giuliano 🏁🏎️</title>
+  <title>Invitación — Cumpleaños de Giuliano 🏁</title>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Racing+Sans+One&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after {
@@ -14,36 +14,38 @@
     }
 
     :root {
+      --bg-main: #0B0B0E;
+      --bg-card: #16161A;
       --racing-red: #E60000;
-      --racing-red-light: #FF2E4D;
+      --racing-red-dark: #A30000;
       --racing-yellow: #FFCC00;
-      --racing-gold: #FFA500;
-      --mcqueen-dark: #140507;
-      --card-bg: linear-gradient(145deg, #1E0A0D 0%, #120608 100%);
-      --card-border-red: 2px solid rgba(230, 0, 0, 0.6);
-      --card-border-gold: 2px solid rgba(255, 204, 0, 0.6);
-      --shadow-red: 0 10px 25px rgba(230, 0, 0, 0.35);
-      --shadow-gold: 0 10px 25px rgba(255, 204, 0, 0.25);
+      --racing-gold: #F59E0B;
+      --text-white: #FFFFFF;
+      --text-muted: #A1A1AA;
+      --text-muted-light: #D4D4D8;
+      --border-red: 1px solid rgba(230, 0, 0, 0.35);
+      --border-yellow: 1px solid rgba(255, 204, 0, 0.35);
+      --shadow-red: 0 8px 30px rgba(230, 0, 0, 0.25);
     }
 
     body {
-      background: var(--mcqueen-dark);
+      background: var(--bg-main);
       background-image: 
-        radial-gradient(circle at 50% 0%, rgba(230, 0, 0, 0.35) 0%, transparent 65%),
-        radial-gradient(circle at 50% 50%, rgba(255, 204, 0, 0.15) 0%, transparent 60%),
-        radial-gradient(circle at 80% 90%, rgba(230, 0, 0, 0.25) 0%, transparent 70%);
+        radial-gradient(circle at 50% 0%, rgba(230, 0, 0, 0.2) 0%, transparent 75%),
+        radial-gradient(circle at 80% 90%, rgba(255, 204, 0, 0.1) 0%, transparent 50%);
       font-family: 'Outfit', sans-serif;
-      color: #FFFFFF;
+      color: var(--text-white);
       margin: 0;
       padding: 0;
       min-height: 100vh;
     }
 
+    /* ── CONTAINER ── */
     .container {
       width: 100%;
       max-width: 480px;
       margin: 0 auto;
-      padding-bottom: 2.5rem;
+      padding-bottom: 2rem;
     }
 
     /* ── HERO BANNER POSTER ── */
@@ -57,18 +59,19 @@
       height: auto;
       display: block;
       border-radius: 0 0 20px 20px;
-      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.9), 0 0 20px rgba(230, 0, 0, 0.4);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
     }
 
-    /* ── COUNTDOWN SPEEDOMETER ── */
+    /* ── COUNTDOWN ── */
     .countdown-section {
+      background: var(--bg-main);
       padding: 1.5rem 1rem;
       text-align: center;
     }
 
-    .countdown-title {
+    .countdown-section h2 {
       font-family: 'Racing Sans One', cursive;
-      font-size: 14px;
+      font-size: 13px;
       letter-spacing: 2px;
       text-transform: uppercase;
       color: var(--racing-yellow);
@@ -76,157 +79,156 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
-      text-shadow: 0 2px 8px rgba(255, 204, 0, 0.5);
+      gap: 10px;
     }
 
-    .countdown-title::before,
-    .countdown-title::after {
+    .countdown-section h2::before,
+    .countdown-section h2::after {
       content: '';
       flex: 1;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, var(--racing-red), transparent);
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255, 204, 0, 0.4), transparent);
     }
 
-    .countdown-grid {
+    .countdown {
       display: flex;
       align-items: center;
-      justify-content: space-around;
+      justify-content: center;
       gap: 6px;
     }
 
     .time-box {
-      background: linear-gradient(180deg, #2A080C 0%, #150305 100%);
-      border: 2px solid var(--racing-red);
-      border-radius: 14px;
-      padding: 0.75rem 0.25rem;
+      background: rgba(22, 22, 26, 0.9);
+      border: 1px solid rgba(230, 0, 0, 0.4);
+      border-radius: 12px;
+      padding: 0.75rem 0;
       flex: 1;
       text-align: center;
-      box-shadow: var(--shadow-red);
-      transition: transform 0.2s ease;
-    }
-
-    .time-box:hover {
-      transform: translateY(-2px);
-      border-color: var(--racing-yellow);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
     }
 
     .time-box span {
       font-family: 'Racing Sans One', cursive;
-      font-size: clamp(26px, 7vw, 36px);
-      color: #FFFFFF;
+      font-size: clamp(28px, 8vw, 38px);
+      color: var(--text-white);
       display: block;
       line-height: 1;
-      text-shadow: 0 0 12px rgba(255, 255, 255, 0.6);
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
     }
 
     .time-box small {
-      font-size: 8.5px;
+      font-size: 8px;
       letter-spacing: 1.5px;
       text-transform: uppercase;
       color: var(--racing-yellow);
       display: block;
       margin-top: 5px;
-      font-weight: 800;
+      font-weight: 700;
     }
 
     .separator {
       font-family: 'Racing Sans One', cursive;
       font-size: 24px;
-      color: var(--racing-yellow);
+      color: var(--racing-red);
+      flex-shrink: 0;
       margin-bottom: 10px;
-      text-shadow: 0 0 8px rgba(255, 204, 0, 0.6);
     }
 
-    /* ── RSVP PITS CARD ── */
+    /* ── RSVP CARD ── */
     .rsvp-card {
-      background: var(--card-bg);
-      border-radius: 20px;
-      margin: 12px 10px;
+      background: var(--bg-card);
+      border-radius: 18px;
+      margin: 10px;
       overflow: hidden;
-      border: var(--card-border-gold);
-      box-shadow: var(--shadow-gold);
+      border: var(--border-red);
+      box-shadow: var(--shadow-red);
+      display: grid;
+      grid-template-columns: 140px 1fr;
     }
 
-    .guest-header {
-      background: linear-gradient(180deg, rgba(255, 204, 0, 0.2) 0%, rgba(230, 0, 0, 0.15) 100%);
-      padding: 1.25rem 1rem;
+    .guest-panel {
+      background: linear-gradient(180deg, rgba(230, 0, 0, 0.15) 0%, rgba(0,0,0,0.4) 100%);
+      padding: 1.5rem 0.85rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       text-align: center;
-      border-bottom: 1px solid rgba(255, 204, 0, 0.25);
+      border-right: 1px solid rgba(255, 255, 255, 0.08);
+      gap: 6px;
     }
 
-    .guest-avatar-box {
-      width: 52px;
-      height: 52px;
-      background: linear-gradient(135deg, var(--racing-red) 0%, #8D0801 100%);
+    .guest-icon {
+      width: 46px;
+      height: 46px;
+      background: var(--racing-red);
       border: 2px solid var(--racing-yellow);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin: 0 auto 0.65rem;
-      box-shadow: 0 4px 14px rgba(230, 0, 0, 0.6);
+      font-size: 22px;
+      margin-bottom: 4px;
+      box-shadow: 0 4px 12px rgba(230, 0, 0, 0.5);
     }
 
-    .guest-header h3 {
-      font-size: 13px;
-      color: #E4E4E7;
+    .guest-panel h3 {
+      font-size: 12px;
+      color: var(--text-muted);
       font-weight: 500;
+      line-height: 1.4;
     }
 
-    .guest-header h3 strong {
-      font-size: 20px;
-      font-weight: 900;
-      color: var(--racing-yellow);
+    .guest-panel h3 span {
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--text-white);
       display: block;
       margin-top: 2px;
-      text-shadow: 0 2px 8px rgba(255, 204, 0, 0.3);
     }
 
-    .guest-header p {
-      font-size: 12px;
-      color: #FFFFFF;
+    .guest-panel p {
+      font-size: 11px;
+      color: var(--racing-yellow);
       font-weight: 600;
-      margin-top: 4px;
+      line-height: 1.4;
     }
 
-    .rsvp-body {
-      padding: 1.25rem;
+    .rsvp-panel {
+      padding: 1.25rem 1rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
     #loading {
-      font-size: 13px;
-      color: var(--racing-yellow);
+      font-size: 12px;
+      color: var(--text-muted);
       text-align: center;
-      padding: 1.25rem 0;
-      font-weight: 600;
+      padding: 1rem 0;
     }
 
     .selector-item {
-      background: rgba(0, 0, 0, 0.4);
-      border: 1px solid rgba(255, 204, 0, 0.3);
-      border-radius: 12px;
-      padding: 10px 14px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
       margin-bottom: 8px;
+      text-align: left;
     }
 
     .selector-item label {
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 700;
-      color: #FFFFFF;
+      color: var(--text-white);
+      display: block;
+      margin-bottom: 3px;
     }
 
     .select-input {
+      width: 100%;
+      padding: 7px 10px;
+      border-radius: 8px;
+      border: 1.5px solid var(--racing-red);
       background: #000000;
       color: var(--racing-yellow);
-      border: 2px solid var(--racing-red);
-      border-radius: 8px;
-      padding: 6px 12px;
       font-size: 13px;
-      font-weight: 800;
+      font-weight: 700;
       font-family: 'Outfit', sans-serif;
       outline: none;
       cursor: pointer;
@@ -235,212 +237,178 @@
     .action-buttons {
       display: flex;
       flex-direction: column;
-      gap: 10px;
-      margin-top: 12px;
+      gap: 8px;
+      margin-top: 10px;
     }
 
-    .btn-confirm {
+    .btn-primary {
       width: 100%;
-      padding: 14px 12px;
-      border-radius: 12px;
-      font-size: 14px;
-      font-weight: 900;
+      padding: 12px 10px;
+      border-radius: 10px;
+      font-size: 13px;
+      font-weight: 800;
       cursor: pointer;
       border: none;
-      background: linear-gradient(135deg, var(--racing-red) 0%, #B30000 100%);
-      color: #FFFFFF;
+      background: linear-gradient(135deg, var(--racing-red) 0%, var(--racing-red-dark) 100%);
+      color: var(--text-white);
       font-family: 'Outfit', sans-serif;
       transition: all 0.2s;
       letter-spacing: 0.5px;
-      box-shadow: var(--shadow-red);
+      box-shadow: 0 4px 14px rgba(230, 0, 0, 0.4);
       text-transform: uppercase;
-      border: 1px solid var(--racing-yellow);
     }
 
-    .btn-confirm:hover:not(:disabled) {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 25px rgba(230, 0, 0, 0.7);
+    .btn-primary:hover:not(:disabled) {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 18px rgba(230, 0, 0, 0.6);
     }
 
-    .btn-decline {
+    .btn-primary:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+
+    .btn-secondary {
       width: 100%;
-      padding: 11px 12px;
-      border-radius: 12px;
-      font-size: 12px;
-      font-weight: 700;
+      padding: 10px 8px;
+      border-radius: 10px;
+      font-size: 11px;
+      font-weight: 600;
       cursor: pointer;
-      border: 1px solid rgba(255, 255, 255, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.15);
       background: transparent;
-      color: #A1A1AA;
+      color: var(--text-muted);
       font-family: 'Outfit', sans-serif;
       transition: all 0.15s;
     }
 
-    .btn-decline:hover {
-      background: rgba(255, 255, 255, 0.1);
-      color: #FFFFFF;
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--text-white);
     }
 
     /* States */
     #already-box, #success-confirm, #success-decline {
       text-align: center;
-      padding: 1.25rem 0.5rem;
+      padding: 1rem 0.5rem;
+      border-radius: 10px;
+      font-size: 13px;
     }
 
     .state-title {
-      font-size: 18px;
-      font-weight: 900;
+      font-size: 16px;
+      font-weight: 800;
       color: var(--racing-yellow);
       display: block;
       margin-bottom: 4px;
     }
 
     .state-sub {
-      font-size: 13px;
-      color: #E4E4E7;
+      font-size: 12px;
+      color: var(--text-muted-light);
       display: block;
     }
 
     #error-box {
-      background: rgba(230, 0, 0, 0.25);
-      border: 1.5px solid var(--racing-red);
-      border-radius: 12px;
+      background: rgba(230, 0, 0, 0.15);
+      border: 1px solid var(--racing-red);
+      border-radius: 10px;
       padding: 0.75rem;
       font-size: 12px;
-      color: #FFC0C0;
+      color: #FCA5A5;
       text-align: center;
     }
 
-    /* ── VIBRANT INFO CARDS (LOWER CARS CARDS) ── */
+    /* ── INFO GRID ── */
     .info-grid {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
-      gap: 10px;
-      padding: 0 10px;
+      gap: 8px;
+      padding: 0 10px 10px;
     }
 
     .info-card {
-      background: var(--card-bg);
-      border: var(--card-border-gold);
-      border-radius: 18px;
-      padding: 1.25rem 0.75rem;
+      background: var(--bg-card);
+      border: var(--border-yellow);
+      border-radius: 14px;
+      padding: 1rem 0.65rem;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: space-between;
-      gap: 8px;
+      gap: 4px;
       text-align: center;
-      box-shadow: var(--shadow-gold);
-      position: relative;
-      overflow: hidden;
-      transition: transform 0.2s ease, border-color 0.2s ease;
-    }
-
-    .info-card:hover {
-      transform: translateY(-3px);
-      border-color: var(--racing-red);
-    }
-
-    .card-graphic {
-      width: 56px;
-      height: 56px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 2px;
     }
 
     .info-card h4 {
-      font-family: 'Racing Sans One', cursive;
-      font-size: 11px;
-      letter-spacing: 1.5px;
+      font-size: 8px;
+      letter-spacing: 1px;
       text-transform: uppercase;
       color: var(--racing-yellow);
-      line-height: 1.2;
+      font-weight: 700;
+      line-height: 1.4;
     }
 
     .info-card p {
-      font-size: 12px;
-      color: #FFFFFF;
-      font-weight: 600;
-      line-height: 1.35;
+      font-size: 11px;
+      color: var(--text-white);
+      font-weight: 500;
+      line-height: 1.3;
     }
 
-    .info-card p small {
-      color: #D4D4D8;
-      font-size: 10px;
-      font-weight: 400;
-      display: block;
-      margin-top: 3px;
-    }
-
-    .hour-badge {
-      font-family: 'Racing Sans One', cursive;
-      font-size: 18px;
-      color: #FFFFFF;
-      background: var(--racing-red);
-      padding: 4px 10px;
-      border-radius: 8px;
-      border: 1px solid var(--racing-yellow);
-      display: inline-block;
-      margin-bottom: 2px;
-      box-shadow: 0 4px 10px rgba(230, 0, 0, 0.4);
-    }
-
-    .date-badge {
-      font-size: 10px;
+    .hour {
+      font-size: 16px;
       font-weight: 800;
       color: var(--racing-yellow);
-      letter-spacing: 0.5px;
+    }
+
+    .phone {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--text-white);
+      line-height: 1.4;
     }
 
     .info-btn {
       margin-top: 6px;
-      padding: 9px 10px;
-      border-radius: 10px;
+      padding: 7px 8px;
+      border-radius: 8px;
       font-size: 10px;
-      font-weight: 800;
+      font-weight: 700;
       cursor: pointer;
-      border: 1px solid var(--racing-yellow);
-      background: linear-gradient(135deg, var(--racing-red) 0%, var(--racing-red-dark) 100%);
-      color: #FFFFFF;
+      border: 1px solid var(--racing-red);
+      background: rgba(230, 0, 0, 0.2);
+      color: var(--text-white);
       font-family: 'Outfit', sans-serif;
       text-decoration: none;
       display: block;
       width: 100%;
       text-align: center;
-      transition: all 0.2s ease;
+      transition: all 0.15s;
       text-transform: uppercase;
-      box-shadow: 0 4px 10px rgba(230, 0, 0, 0.3);
     }
 
     .info-btn:hover {
       background: var(--racing-red);
-      transform: scale(1.02);
-    }
-
-    .info-btn-wa {
-      background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
-      border-color: #A7F3D0;
-      box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
-    }
-
-    .info-btn-wa:hover {
-      background: #25D366;
     }
 
     /* ── FOOTER ── */
     footer {
-      padding: 1.5rem 1rem 0;
+      padding: 1rem 1rem;
       text-align: center;
       font-size: 13px;
-      color: var(--racing-yellow);
-      font-weight: 700;
-      letter-spacing: 0.5px;
+      color: var(--text-muted);
+      font-weight: 500;
     }
 
-    /* ── MOBILE RESPONSIVE ── */
-    @media (max-width: 440px) {
+    /* ── MOBILE ── */
+    @media (max-width: 400px) {
+      .rsvp-card {
+        grid-template-columns: 1fr;
+      }
+      .guest-panel {
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      }
       .info-grid {
         grid-template-columns: 1fr;
       }
@@ -456,11 +424,9 @@
       <img src="invitacion.png" alt="Invitación Giuliano 2" class="hero-img">
     </section>
 
-    <!-- COUNTDOWN SPEEDOMETER -->
+    <!-- CONTADOR REGRESIVO -->
     <section class="countdown-section">
-      <div class="countdown-title">
-        🏁 FALTAN PARA LA LARGADA 🏆
-      </div>
+      <h2>FALTAN PARA LA LARGADA</h2>
       <div class="countdown">
         <div class="time-box">
           <span id="dias">00</span>
@@ -484,19 +450,10 @@
       </div>
     </section>
 
-    <!-- RSVP CARD PITS -->
+    <!-- RSVP CARD -->
     <section class="rsvp-card">
       <div class="guest-panel">
-        <div class="guest-avatar-box">
-          <!-- Steering wheel SVG icon -->
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FFCC00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="10"/>
-            <circle cx="12" cy="12" r="3"/>
-            <line x1="12" y1="2" x2="12" y2="9"/>
-            <line x1="2" y1="12" x2="9" y2="12"/>
-            <line x1="15" y1="12" x2="22" y2="12"/>
-          </svg>
-        </div>
+        <div class="guest-icon">🏎️</div>
         <h3>
           Piloto Invitado:<br>
           <span id="guestName">Cargando...</span>
@@ -505,114 +462,54 @@
       </div>
 
       <div class="rsvp-panel">
-        <div id="loading">⚡ Cargando tu pase a Pits...</div>
+        <div id="loading">Cargando invitación...</div>
         <div id="error-box" style="display:none;"></div>
         <div id="rsvp-content"></div>
 
         <div id="already-box" style="display:none;">
-          <span style="font-size:36px;display:block;margin-bottom:6px;">🏁</span>
+          <span style="font-size:32px;display:block;margin-bottom:6px;">🏁</span>
           <span id="already-title" class="state-title"></span>
           <span id="already-sub" class="state-sub"></span>
         </div>
 
         <div id="success-confirm" style="display:none;">
-          <span style="font-size:36px;display:block;margin-bottom:6px;">🏆</span>
+          <span style="font-size:32px;display:block;margin-bottom:6px;">🏆</span>
           <span id="sc-title" class="state-title"></span>
           <span id="sc-sub" class="state-sub"></span>
         </div>
 
         <div id="success-decline" style="display:none;">
-          <span style="font-size:36px;display:block;margin-bottom:6px;">💙</span>
+          <span style="font-size:32px;display:block;margin-bottom:6px;">💙</span>
           <span class="state-title" style="color:#FFFFFF;">¡Gracias por avisar!</span>
-          <span class="state-sub">Te vamos a extrañar en la carrera.</span>
+          <span class="state-sub">Te vamos a extrañar en la pista de carreras.</span>
         </div>
       </div>
     </section>
 
-    <!-- VIBRANT INFO CARDS (LOWER CARS CARDS) -->
+    <!-- INFO GRID -->
     <section class="info-grid">
-
-      <!-- CARD 1: CIRCUITO -->
       <div class="info-card">
-        <div class="card-graphic">
-          <!-- Race Track Circuit SVG -->
-          <svg width="48" height="48" viewBox="0 0 64 64" fill="none">
-            <rect width="64" height="64" rx="14" fill="url(#trackBg)"/>
-            <path d="M16 22C16 16.4772 20.4772 12 26 12H38C43.5228 12 48 16.4772 48 22V42C48 47.5228 43.5228 52 38 52H26C20.4772 52 16 47.5228 16 42V22Z" stroke="#FFCC00" stroke-width="4" stroke-dasharray="6 4"/>
-            <circle cx="26" cy="22" r="4" fill="#E60000"/>
-            <circle cx="38" cy="42" r="4" fill="#E60000"/>
-            <defs>
-              <linearGradient id="trackBg" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
-                <stop stop-color="#2E0A0E"/>
-                <stop stop-color="#120406" offset="1"/>
-              </linearGradient>
-            </defs>
-          </svg>
-        </div>
-        <h4>CIRCUITO</h4>
-        <p>Salón de Eventos Amancay<small>Carlos Antonio Lopez y Paseo de Fatima</small></p>
+        <h4>📍 CIRCUITO</h4>
+        <p>Salón de Eventos Amancay</p>
+        <p><small style="color:var(--text-muted)">Carlos Antonio Lopez y Paseo de Fatima</small></p>
         <a href="https://maps.app.goo.gl/gQYUdELYaQ8Nciix6?g_st=aw" target="_blank" class="info-btn">
-          Abrir Ubicación 🗺️
+          Abrir Ubicación
         </a>
       </div>
 
-      <!-- CARD 2: BANDERA DE SALIDA -->
       <div class="info-card">
-        <div class="card-graphic">
-          <!-- Checkered Flags & Traffic Light SVG -->
-          <svg width="48" height="48" viewBox="0 0 64 64" fill="none">
-            <rect width="64" height="64" rx="14" fill="url(#flagBg)"/>
-            <!-- Checkered flag left -->
-            <path d="M18 16L32 24L18 32V48" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
-            <path d="M18 16L32 24L18 32Z" fill="#FFCC00"/>
-            <!-- Checkered flag right -->
-            <path d="M46 16L32 24L46 32V48" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
-            <path d="M46 16L32 24L46 32Z" fill="#E60000"/>
-            <!-- Green light -->
-            <circle cx="32" cy="40" r="5" fill="#10B981"/>
-            <defs>
-              <linearGradient id="flagBg" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
-                <stop stop-color="#2E0A0E"/>
-                <stop stop-color="#120406" offset="1"/>
-              </linearGradient>
-            </defs>
-          </svg>
-        </div>
-        <h4>BANDERA DE SALIDA</h4>
-        <div class="hour-badge">18:00 HS</div>
-        <div class="date-badge">SÁBADO 07 NOV</div>
+        <h4>🚥 BANDERA DE SALIDA</h4>
+        <div class="hour">18:00 HS</div>
+        <small style="color:var(--racing-yellow);font-weight:700;">SÁBADO 07 NOV</small>
       </div>
 
-      <!-- CARD 3: INFO DE LA CARRERA / GRÚA MATE -->
       <div class="info-card">
-        <div class="card-graphic">
-          <!-- Tow Mater Tow Truck SVG Graphic -->
-          <svg width="48" height="48" viewBox="0 0 64 64" fill="none">
-            <rect width="64" height="64" rx="14" fill="url(#materBg)"/>
-            <!-- Tow Hook -->
-            <path d="M18 20L28 14L38 28" stroke="#FFCC00" stroke-width="3" stroke-linecap="round"/>
-            <!-- Truck Cab & Wheels -->
-            <rect x="20" y="28" width="24" height="16" rx="4" fill="#B45309" stroke="#FFCC00" stroke-width="2"/>
-            <circle cx="26" cy="44" r="4" fill="#000" stroke="#FFCC00" stroke-width="2"/>
-            <circle cx="38" cy="44" r="4" fill="#000" stroke="#FFCC00" stroke-width="2"/>
-            <!-- Cute Mater Eyes -->
-            <circle cx="28" cy="34" r="2" fill="#FFF"/>
-            <circle cx="36" cy="34" r="2" fill="#FFF"/>
-            <defs>
-              <linearGradient id="materBg" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
-                <stop stop-color="#2E0A0E"/>
-                <stop stop-color="#120406" offset="1"/>
-              </linearGradient>
-            </defs>
-          </svg>
-        </div>
-        <h4>INFO DE LA CARRERA</h4>
-        <p>+595 992 327384<small>Consultas & Pits</small></p>
-        <a href="https://wa.me/595992327384" target="_blank" class="info-btn info-btn-wa">
-          Enviar WhatsApp 📲
+        <h4>📞 EQUIPO DE PITS</h4>
+        <div class="phone">+595 972 607418</div>
+        <a href="https://wa.me/595972607418" target="_blank" class="info-btn">
+          Enviar WhatsApp
         </a>
       </div>
-
     </section>
 
     <footer>
@@ -658,14 +555,14 @@
       } catch (err) {
         document.getElementById('loading').style.display = 'none';
         console.error(err);
-        showError('Error al conectar con el circuito');
+        showError('Error al conectar con la invitación');
       }
     }
 
     async function confirmar() {
       const btn = document.getElementById('btn-confirm');
       btn.disabled = true;
-      btn.textContent = 'REGISTRANDO EN PITS...';
+      btn.textContent = 'REGISTRANDO...';
 
       const adultos = document.getElementById('sel-adultos') ? Number(document.getElementById('sel-adultos').value) : 0;
       const ninos = document.getElementById('sel-ninos') ? Number(document.getElementById('sel-ninos').value) : 0;
