@@ -149,11 +149,11 @@
 
     /* ── RSVP CARD ── */
     .rsvp-card {
-      background: var(--bg-card);
-      border-radius: 18px;
-      margin: 10px;
+      background: rgba(18, 6, 8, 0.9);
+      border: 2.5px solid var(--racing-red);
+      border-radius: 20px;
+      margin: 10px 0;
       overflow: hidden;
-      border: var(--border-red);
       box-shadow: var(--shadow-red);
       display: grid;
       grid-template-columns: 140px 1fr;
@@ -165,19 +165,49 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      justify-content: center;
       text-align: center;
       border-right: 1px solid rgba(255, 255, 255, 0.08);
       gap: 6px;
     }
 
-    .guest-icon {
-      width: 46px;
-      height: 46px;
-      background: var(--racing-red);
-      border: 2px solid var(--racing-yellow);
-      border-radius: 50%;
+    .qty-options {
+      display: flex;
+      gap: 6px;
+      margin-top: 4px;
+      flex-wrap: wrap;
+    }
+
+    .qty-btn {
+      flex: 1;
+      min-width: 40px;
+      padding: 8px 6px;
+      border-radius: 8px;
+      border: 1.5px solid rgba(255, 255, 255, 0.2);
+      background: rgba(0, 0, 0, 0.6);
+      color: var(--text-white);
+      font-family: 'Outfit', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
       display: flex;
       align-items: center;
+      justify-content: center;
+      gap: 4px;
+      transition: all 0.2s ease;
+    }
+
+    .qty-btn:hover {
+      border-color: var(--racing-yellow);
+      background: rgba(230, 0, 0, 0.2);
+    }
+
+    .qty-btn.active {
+      background: linear-gradient(135deg, var(--racing-red) 0%, var(--racing-red-dark) 100%);
+      border-color: var(--racing-yellow);
+      color: var(--racing-yellow);
+      box-shadow: 0 0 10px rgba(230, 0, 0, 0.6);
+    }
       justify-content: center;
       font-size: 22px;
       margin-bottom: 4px;
@@ -468,9 +498,8 @@
     <!-- RSVP CARD -->
     <section class="rsvp-card">
       <div class="guest-panel">
-        <div class="guest-icon">🏎️</div>
         <h3>
-          Piloto Invitado:<br>
+          <span id="guestLabel">Piloto Invitado:</span><br>
           <span id="guestName">Cargando...</span>
         </h3>
         <p id="guestCupo">Pase a Pits</p>
@@ -494,7 +523,7 @@
         </div>
 
         <div id="success-decline" style="display:none;">
-          <span style="font-size:32px;display:block;margin-bottom:6px;">💙</span>
+          <span style="font-size:32px;display:block;margin-bottom:6px;">🟨 ❤️</span>
           <span class="state-title" style="color:#FFFFFF;">¡Gracias por avisar!</span>
           <span class="state-sub">Te vamos a extrañar en la pista de carreras.</span>
         </div>
@@ -547,6 +576,62 @@
 
     const TOKEN = getParam('token');
     let invitado = null;
+    let selectedAdultos = 0;
+    let selectedNinos = 0;
+    let selectedNinas = 0;
+
+    function getDescripcionCupo(adultos, ninos, ninas) {
+      const a = Number(adultos) || 0;
+      const n = Number(ninos) || 0;
+      const na = Number(ninas) || 0;
+      const totalMax = a + n + na;
+
+      const tieneAdulto = a > 0;
+      const tieneNino = n > 0;
+      const tieneNina = na > 0;
+
+      const aText = `${a} ${a === 1 ? 'Adulto' : 'Adultos'}`;
+      const nText = `${n} ${n === 1 ? 'niño' : 'niños'}`;
+      const naText = `${na} ${na === 1 ? 'niña' : 'niñas'}`;
+
+      if (tieneAdulto && tieneNino && tieneNina) {
+        return `Válido para ${aText}, ${nText} y ${naText}`;
+      }
+
+      if (tieneAdulto && tieneNina && !tieneNino) {
+        return `Válido para ${aText} y ${naText}`;
+      }
+
+      if (tieneAdulto && tieneNino && !tieneNina) {
+        return `Válido para ${aText} y ${nText}`;
+      }
+
+      if (tieneAdulto && !tieneNino && !tieneNina) {
+        return `Válido para ${totalMax} ${totalMax === 1 ? 'persona' : 'personas'}.`;
+      }
+
+      return `Válido para ${totalMax} ${totalMax === 1 ? 'persona' : 'personas'}.`;
+    }
+
+    function getIconString(iconChar, count) {
+      if (count === 0) return '0 🚫';
+      let icons = '';
+      for (let i = 0; i < count; i++) {
+        icons += iconChar;
+      }
+      return `${count} ${icons}`;
+    }
+
+    function selectQty(type, val, btnEl) {
+      if (type === 'adultos') selectedAdultos = val;
+      if (type === 'ninos') selectedNinos = val;
+      if (type === 'ninas') selectedNinas = val;
+
+      const container = btnEl.parentElement;
+      const buttons = container.querySelectorAll('.qty-btn');
+      buttons.forEach(b => b.classList.remove('active'));
+      btnEl.classList.add('active');
+    }
 
     async function init() {
       if (!TOKEN) {
@@ -584,9 +669,9 @@
       btn.disabled = true;
       btn.textContent = 'REGISTRANDO...';
 
-      const adultos = document.getElementById('sel-adultos') ? Number(document.getElementById('sel-adultos').value) : 0;
-      const ninos = document.getElementById('sel-ninos') ? Number(document.getElementById('sel-ninos').value) : 0;
-      const ninas = document.getElementById('sel-ninas') ? Number(document.getElementById('sel-ninas').value) : 0;
+      const adultos = selectedAdultos;
+      const ninos = selectedNinos;
+      const ninas = selectedNinas;
 
       try {
         const response = await fetch(SCRIPT_URL, {
@@ -651,7 +736,8 @@
       document.getElementById('guestName').textContent = data.nombre;
 
       const totalMax = (data.cupoAdulto || 0) + (data.cupoNino || 0) + (data.cupoNina || 0);
-      document.getElementById('guestCupo').textContent = `Pase a Pits para hasta ${totalMax} persona(s)`;
+      document.getElementById('guestLabel').textContent = totalMax === 1 ? 'Piloto Invitado:' : 'Pilotos Invitados:';
+      document.getElementById('guestCupo').textContent = getDescripcionCupo(data.cupoAdulto || 0, data.cupoNino || 0, data.cupoNina || 0);
 
       const confirmo = String(data.asistencia).toLowerCase().includes('confirm');
 
@@ -673,7 +759,12 @@
     function renderRSVP() {
       document.getElementById('guestName').textContent = invitado.nombre;
       const totalMax = (invitado.cupoAdulto || 0) + (invitado.cupoNino || 0) + (invitado.cupoNina || 0);
-      document.getElementById('guestCupo').textContent = `Pase a Pits para hasta ${totalMax} persona(s)`;
+      document.getElementById('guestLabel').textContent = totalMax === 1 ? 'Piloto Invitado:' : 'Pilotos Invitados:';
+      document.getElementById('guestCupo').textContent = getDescripcionCupo(invitado.cupoAdulto || 0, invitado.cupoNino || 0, invitado.cupoNina || 0);
+
+      selectedAdultos = invitado.cupoAdulto || 0;
+      selectedNinos = invitado.cupoNino || 0;
+      selectedNinas = invitado.cupoNina || 0;
 
       let selectors = '';
 
@@ -681,36 +772,51 @@
         selectors += `
           <div class="selector-item">
             <label>Adultos (máx. ${invitado.cupoAdulto}):</label>
-            <select id="sel-adultos" class="select-input">
+            <div class="qty-options">
         `;
         for (let i = 1; i <= invitado.cupoAdulto; i++) {
-          selectors += `<option value="${i}" ${i === invitado.cupoAdulto ? 'selected' : ''}>${i} adulto(s)</option>`;
+          const activeClass = i === selectedAdultos ? 'active' : '';
+          selectors += `
+            <button type="button" class="qty-btn ${activeClass}" onclick="selectQty('adultos', ${i}, this)">
+              ${getIconString('👤', i)}
+            </button>
+          `;
         }
-        selectors += `</select></div>`;
+        selectors += `</div></div>`;
       }
 
       if (invitado.cupoNino > 0) {
         selectors += `
           <div class="selector-item">
             <label>Niños (máx. ${invitado.cupoNino}):</label>
-            <select id="sel-ninos" class="select-input">
+            <div class="qty-options">
         `;
         for (let i = 0; i <= invitado.cupoNino; i++) {
-          selectors += `<option value="${i}" ${i === invitado.cupoNino ? 'selected' : ''}>${i} niño(s)</option>`;
+          const activeClass = i === selectedNinos ? 'active' : '';
+          selectors += `
+            <button type="button" class="qty-btn ${activeClass}" onclick="selectQty('ninos', ${i}, this)">
+              ${getIconString('👦', i)}
+            </button>
+          `;
         }
-        selectors += `</select></div>`;
+        selectors += `</div></div>`;
       }
 
       if (invitado.cupoNina > 0) {
         selectors += `
           <div class="selector-item">
             <label>Niñas (máx. ${invitado.cupoNina}):</label>
-            <select id="sel-ninas" class="select-input">
+            <div class="qty-options">
         `;
         for (let i = 0; i <= invitado.cupoNina; i++) {
-          selectors += `<option value="${i}" ${i === invitado.cupoNina ? 'selected' : ''}>${i} niña(s)</option>`;
+          const activeClass = i === selectedNinas ? 'active' : '';
+          selectors += `
+            <button type="button" class="qty-btn ${activeClass}" onclick="selectQty('ninas', ${i}, this)">
+              ${getIconString('👧', i)}
+            </button>
+          `;
         }
-        selectors += `</select></div>`;
+        selectors += `</div></div>`;
       }
 
       document.getElementById('rsvp-content').innerHTML = `
