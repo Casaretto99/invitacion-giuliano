@@ -216,12 +216,25 @@
       line-height: 1.4;
     }
 
-    .guest-panel h3 span {
-      font-size: 17px;
-      font-weight: 800;
+    .guest-panel h3 span#guestLabel {
+      font-family: 'Racing Sans One', cursive;
+      font-style: italic;
+      font-size: 14px;
+      color: var(--racing-yellow);
+      display: block;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      text-shadow: 0 0 8px rgba(255, 204, 0, 0.4);
+    }
+
+    .guest-panel h3 span#guestName {
+      font-family: 'Racing Sans One', cursive;
+      font-style: italic;
+      font-size: 18px;
       color: var(--text-white);
       display: block;
-      margin-top: 2px;
+      margin-top: 4px;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
     }
 
     .guest-panel p {
@@ -336,11 +349,14 @@
     }
 
     .state-title {
-      font-size: 16px;
-      font-weight: 800;
+      font-family: 'Racing Sans One', cursive;
+      font-style: italic;
+      font-size: 17px;
+      font-weight: 400;
       color: var(--racing-yellow);
       display: block;
       margin-bottom: 4px;
+      letter-spacing: 1px;
     }
 
     .state-sub {
@@ -634,20 +650,33 @@
       btnEl.classList.add('active');
     }
 
+    async function fetchWithRetry(url, options = {}, retries = 3) {
+      for (let i = 0; i < retries; i++) {
+        try {
+          const res = await fetch(url, { ...options, redirect: 'follow' });
+          const text = await res.text();
+          const json = JSON.parse(text);
+          return json;
+        } catch (e) {
+          if (i === retries - 1) throw e;
+          await new Promise(r => setTimeout(r, 800));
+        }
+      }
+    }
+
     async function init() {
       if (!TOKEN) {
         document.getElementById('loading').style.display = 'none';
-        showError('Token no especificado en la URL');
+        showError('Ingresa a la invitación usando tu enlace personalizado');
         return;
       }
 
       try {
-        const res = await fetch(`${SCRIPT_URL}?token=${encodeURIComponent(TOKEN)}`);
-        const data = await res.json();
+        const data = await fetchWithRetry(`${SCRIPT_URL}?token=${encodeURIComponent(TOKEN)}`);
         document.getElementById('loading').style.display = 'none';
 
-        if (!data.ok) {
-          showError(data.error || 'Token no encontrado');
+        if (!data || !data.ok) {
+          showError((data && data.error) || 'Invitación no encontrada');
           return;
         }
 
@@ -661,7 +690,7 @@
       } catch (err) {
         document.getElementById('loading').style.display = 'none';
         console.error(err);
-        showError('Error al conectar con la invitación');
+        showError('Error de conexión al cargar la invitación. Intenta recargar la página.');
       }
     }
 
@@ -821,7 +850,7 @@
       }
 
       document.getElementById('rsvp-content').innerHTML = `
-        <h4 style="font-size:13px;color:var(--racing-yellow);margin-bottom:8px;font-weight:700;">
+        <h4 style="font-family:'Racing Sans One', cursive; font-style:italic; font-size:15px; color:var(--racing-yellow); margin-bottom:10px; letter-spacing:1.5px; text-transform:uppercase; text-shadow: 0 0 8px rgba(255, 204, 0, 0.4);">
           CONFIRMA TU ASISTENCIA:
         </h4>
         <div style="margin-bottom:10px;">
