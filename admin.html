@@ -1,142 +1,269 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Panel de Confirmaciones</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel de Administración — Cumpleaños Giuliano 🏎️</title>
 
-<link rel="stylesheet" href="admin.css">
+  <!-- Google Fonts & FontAwesome / SheetJS -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Racing+Sans+One&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
-
+  <link rel="stylesheet" href="admin.css">
 </head>
+
 <body>
 
-<div id="loginBox" class="login-box">
+  <!-- LOGIN BOX -->
+  <div id="loginBox" class="login-container">
+    <div class="login-card">
+      <div class="login-header">
+        <span class="cars-badge">🏁 COPA PISTÓN 🏆</span>
+        <h2>Panel de Administración</h2>
+        <p>Gestión de Invitaciones y Asistencia</p>
+      </div>
+      <div class="login-form">
+        <input type="password" id="password" placeholder="Contraseña de acceso" onkeydown="checkEnter(event)">
+        <button onclick="login()" class="btn-primary">Ingresar al Panel</button>
+      </div>
+    </div>
+  </div>
 
-    <h2>Panel de Confirmaciones</h2>
+  <!-- MAIN PANEL -->
+  <div id="panel" class="admin-panel" style="display:none;">
 
-    <input
-        type="password"
-        id="password"
-        placeholder="Contraseña"
-    >
+    <!-- HEADER BAR -->
+    <header class="admin-header">
+      <div class="header-title">
+        <h1>🏎️ Panel de Confirmaciones</h1>
+        <small>Cumpleaños #2 de Giuliano</small>
+      </div>
+      <div class="header-actions">
+        <button onclick="cargarDatos()" class="btn-outline" title="Actualizar datos">
+          🔄 Actualizar
+        </button>
+        <button onclick="logout()" class="btn-danger" title="Cerrar sesión">
+          🚪 Salir
+        </button>
+      </div>
+    </header>
 
-    <button onclick="login()">
-        Ingresar
-    </button>
-
-</div>
-
-<div id="panel" style="display:none;">
-
-    <h1>Confirmaciones</h1>
-
-    <section class="cards">
-
-        <div class="card">
-            <h3>Confirmados</h3>
-            <span id="confirmados">0</span>
+    <!-- KPI CARDS GRID -->
+    <section class="kpi-grid">
+      <!-- INVITADOS TOTALES -->
+      <div class="kpi-card kpi-total">
+        <div class="kpi-header">
+          <span class="kpi-icon">👨‍👩‍👧‍👦</span>
+          <h4>Total Invitados</h4>
         </div>
-
-        <div class="card">
-            <h3>Pendientes</h3>
-            <span id="pendientes">0</span>
+        <div class="kpi-value" id="kpi-totales">0</div>
+        <div class="kpi-sub" id="kpi-desglose-cupos">
+          <span>Adultos: 0</span> | <span>Niños: 0</span> | <span>Niñas: 0</span>
         </div>
+      </div>
 
-        <div class="card">
-            <h3>No asistirán</h3>
-            <span id="noAsisten">0</span>
+      <!-- CONFIRMADOS -->
+      <div class="kpi-card kpi-success">
+        <div class="kpi-header">
+          <span class="kpi-icon">🟢</span>
+          <h4>Confirmados</h4>
         </div>
-
-        <div class="card">
-            <h3>Personas Confirmadas</h3>
-            <span id="personas">0</span>
+        <div class="kpi-value" id="kpi-confirmados-personas">0</div>
+        <div class="kpi-sub" id="kpi-desglose-confirmados">
+          <span>Adultos: 0</span> | <span>Niños: 0</span> | <span>Niñas: 0</span>
         </div>
+      </div>
 
-        <div class="card">
-            <h3>Cupos Totales</h3>
-            <span id="cupos">0</span>
+      <!-- PENDIENTES -->
+      <div class="kpi-card kpi-warning">
+        <div class="kpi-header">
+          <span class="kpi-icon">🟡</span>
+          <h4>Pendientes</h4>
         </div>
+        <div class="kpi-value" id="kpi-pendientes">0</div>
+        <div class="kpi-sub" id="kpi-desglose-pendientes">Invitaciones sin responder</div>
+      </div>
 
+      <!-- NO ASISTEN -->
+      <div class="kpi-card kpi-danger">
+        <div class="kpi-header">
+          <span class="kpi-icon">🔴</span>
+          <h4>No Asistirán</h4>
+        </div>
+        <div class="kpi-value" id="kpi-no-asisten">0</div>
+        <div class="kpi-sub">Respuestas declinadas</div>
+      </div>
     </section>
 
-    <div class="acciones">
-
-        <button onclick="exportarExcel()">
-            Exportar Excel
+    <!-- TOOLBAR ACCIONES Y BUSCADOR -->
+    <div class="toolbar-section">
+      <div class="export-buttons">
+        <button onclick="exportarExcel()" class="btn-export btn-excel">
+          📊 Exportar Excel (3 Apartados)
         </button>
-
-        <button onclick="exportarPDF()">
-            Exportar PDF
+        <button onclick="exportarPDF()" class="btn-export btn-pdf">
+          📄 Exportar PDF / Imprimir
         </button>
-
+      </div>
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="🔍 Buscar por nombre, ID o teléfono..." oninput="filtrarTabla()">
+      </div>
     </div>
 
-    <h2>Listado General</h2>
+    <!-- TABS BAR -->
+    <nav class="tab-bar">
+      <button class="tab-btn active" id="tab-btn-todos" onclick="switchTab('todos')">
+        📑 Invitados (<span id="count-tab-todos">0</span>)
+      </button>
+      <button class="tab-btn" id="tab-btn-confirmados" onclick="switchTab('confirmados')">
+        🟢 Confirmados (<span id="count-tab-confirmados">0</span>)
+      </button>
+      <button class="tab-btn" id="tab-btn-pendientes" onclick="switchTab('pendientes')">
+        🟡 Pendientes (<span id="count-tab-pendientes">0</span>)
+      </button>
+      <button class="tab-btn" id="tab-btn-noAsisten" onclick="switchTab('noAsisten')">
+        🔴 No Asisten (<span id="count-tab-noAsisten">0</span>)
+      </button>
+    </nav>
 
-    <div class="table-wrapper">
-
-        <table id="tablaGeneral">
-
+    <!-- TAB 1: TODOS LOS INVITADOS -->
+    <div id="tab-content-todos" class="tab-content active">
+      <div class="table-card">
+        <div class="table-header">
+          <h3>📑 Apartado de Invitados (Listado General)</h3>
+        </div>
+        <div class="table-wrapper">
+          <table id="tablaTodos">
             <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Invitado</th>
-                    <th>Estado</th>
-                    <th>Cupo</th>
-                    <th>Confirmados</th>
-                </tr>
+              <tr>
+                <th>ID</th>
+                <th>Nombre del Invitado</th>
+                <th>Cupo Adultos</th>
+                <th>Cupo Niños</th>
+                <th>Cupo Niñas</th>
+                <th>Cupo Total</th>
+                <th>Estado</th>
+                <th>Teléfono</th>
+                <th class="col-action">Acción WhatsApp</th>
+              </tr>
             </thead>
-
-            <tbody id="tbody">
-            </tbody>
-
+            <tbody id="tbody-todos"></tbody>
             <tfoot>
-
-                <tr>
-
-                    <th colspan="3">
-                        Totales
-                    </th>
-
-                    <th id="totalCupos">
-                        0
-                    </th>
-
-                    <th id="totalConfirmados">
-                        0
-                    </th>
-
-                </tr>
-
+              <tr>
+                <th colspan="2">Totales Habilitados</th>
+                <th id="tot-todos-adultos">0</th>
+                <th id="tot-todos-ninos">0</th>
+                <th id="tot-todos-ninas">0</th>
+                <th id="tot-todos-cupos">0</th>
+                <th colspan="3"></th>
+              </tr>
             </tfoot>
-
-        </table>
-
+          </table>
+        </div>
+      </div>
     </div>
 
-    <h2>Confirmados</h2>
-
-    <div class="table-wrapper">
-        <table id="tablaConfirmados"></table>
+    <!-- TAB 2: CONFIRMADOS -->
+    <div id="tab-content-confirmados" class="tab-content">
+      <div class="table-card">
+        <div class="table-header">
+          <h3>🟢 Apartado de Confirmados</h3>
+        </div>
+        <div class="table-wrapper">
+          <table id="tablaConfirmados">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Nombre del Invitado</th>
+                <th>Adultos Confirmados</th>
+                <th>Niños Confirmados</th>
+                <th>Niñas Confirmadas</th>
+                <th>Total Personas</th>
+                <th>Teléfono</th>
+                <th>Fecha Respuesta</th>
+              </tr>
+            </thead>
+            <tbody id="tbody-confirmados"></tbody>
+            <tfoot>
+              <tr>
+                <th colspan="2">Totales Confirmados</th>
+                <th id="tot-conf-adultos">0</th>
+                <th id="tot-conf-ninos">0</th>
+                <th id="tot-conf-ninas">0</th>
+                <th id="tot-conf-personas">0</th>
+                <th colspan="2"></th>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </div>
     </div>
 
-    <h2>No asistirán</h2>
-
-    <div class="table-wrapper">
-        <table id="tablaNoAsisten"></table>
+    <!-- TAB 3: PENDIENTES -->
+    <div id="tab-content-pendientes" class="tab-content">
+      <div class="table-card">
+        <div class="table-header">
+          <h3>🟡 Apartado de Pendientes</h3>
+        </div>
+        <div class="table-wrapper">
+          <table id="tablaPendientes">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Nombre del Invitado</th>
+                <th>Cupo Adultos</th>
+                <th>Cupo Niños</th>
+                <th>Cupo Niñas</th>
+                <th>Total Cupos</th>
+                <th>Teléfono</th>
+                <th class="col-action">Acción WhatsApp</th>
+              </tr>
+            </thead>
+            <tbody id="tbody-pendientes"></tbody>
+            <tfoot>
+              <tr>
+                <th colspan="2">Totales Pendientes</th>
+                <th id="tot-pend-adultos">0</th>
+                <th id="tot-pend-ninos">0</th>
+                <th id="tot-pend-ninas">0</th>
+                <th id="tot-pend-cupos">0</th>
+                <th colspan="2"></th>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </div>
     </div>
 
-    <h2>Pendientes de confirmación</h2>
-
-    <div class="table-wrapper">
-        <table id="tablaPendientes"></table>
+    <!-- TAB 4: NO ASISTEN -->
+    <div id="tab-content-noAsisten" class="tab-content">
+      <div class="table-card">
+        <div class="table-header">
+          <h3>🔴 Apartado de Invitados que No Asistirán</h3>
+        </div>
+        <div class="table-wrapper">
+          <table id="tablaNoAsisten">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Nombre del Invitado</th>
+                <th>Cupo Adultos</th>
+                <th>Cupo Niños</th>
+                <th>Cupo Niñas</th>
+                <th>Teléfono</th>
+                <th>Fecha Respuesta</th>
+              </tr>
+            </thead>
+            <tbody id="tbody-noAsisten"></tbody>
+          </table>
+        </div>
+      </div>
     </div>
 
-</div>
+  </div>
 
-<script src="admin.js"></script>
-
+  <script src="admin.js"></script>
 </body>
+
 </html>
