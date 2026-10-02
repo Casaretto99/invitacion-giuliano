@@ -169,15 +169,16 @@ function renderTablaTodos(lista) {
     totNa += cNa;
 
     const link = `${BASE_INVITATION_URL}?token=${encodeURIComponent(item.token)}`;
-    const msg = encodeURIComponent(
-      `¡Hola ${item.nombre}! 🏎️✨\n\n` +
-      `Te escribo con mucha alegría de parte de la familia para invitarte a celebrar el 2do añito de nuestro pequeño Giuliano 🥳🏁\n\n` +
-      `Queremos compartir con ustedes una tarde llena de emoción, juegos y mucha diversión. 🏆\n\n` +
-      `Ingresa a tu invitación digital aquí: 👇👇👇 ${link}\n\n` +
-      `Por favor, ayúdanos confirmando tu asistencia antes del lunes 02/11.\n\n` +
-      `¡Nos encantará contar con ustedes! ❤️\n\n` +
-      `Un abrazo con cariño, Sus Papis y Flia. 🏁`
-    );
+    const msgText =
+      `¡Hola ${item.nombre}! \u{1F3CE}\u{2728}\n` +
+      `Te escribo con mucha alegría de parte de la familia para invitarte a celebrar el 2do añito de nuestro pequeño Giuliano \u{1F973}\u{1F3C1}\n` +
+      `Queremos compartir con ustedes una tarde llena de emoción, juegos y mucha diversión. \u{1F3C6}\n` +
+      `Ingresa a tu invitación digital aquí: \u{1F447}\u{1F447}\u{1F447}\n` +
+      `${link}\n` +
+      `Por favor, ayúdanos confirmando tu asistencia antes del lunes 02/11.\n` +
+      `¡Nos encantará contar con ustedes! \u{2764}\u{FE0F}\n` +
+      `Un abrazo con cariño, Sus Papis y Flia. \u{1F3C1}`;
+    const msg = encodeURIComponent(msgText);
 
     const telLimpio = formatearTelefono(item.telefono);
     const waButton = telLimpio
@@ -260,14 +261,15 @@ function renderTablaPendientes(lista) {
     totNa += cNa;
 
     const link = `${BASE_INVITATION_URL}?token=${encodeURIComponent(item.token)}`;
-    const msg = encodeURIComponent(
-      `¡Hola ${item.nombre}! 🏎️❤️\n\n` +
-      `Paso a saludarte y recordarte que estamos ajustando los últimos detalles para la fiesta del 2do añito de Giuliano 🏁🥳\n\n` +
-      `Aún tenemos pendiente tu confirmación de asistencia. Puedes verificar y confirmar tu invitación aquí: 👇👇👇 ${link}\n\n` +
-      `Te pedimos por favor confirmar antes del lunes 02/11 para poder organizar los Pits de la mejor manera.\n\n` +
-      `¡Esperamos celebrar juntos! ✨\n\n` +
-      `Un abrazo, Andrea (Mami de Giuliano) ❤️`
-    );
+    const msgText =
+      `¡Hola ${item.nombre}! \u{1F3CE}\u{2764}\u{FE0F}\n` +
+      `Paso a saludarte y recordarte que estamos ajustando los últimos detalles para la fiesta del 2do añito de Giuliano \u{1F3C1}\u{1F973}\n` +
+      `Aún tenemos pendiente tu confirmación de asistencia. Puedes verificar y confirmar tu invitación aquí: \u{1F447}\u{1F447}\u{1F447}\n` +
+      `${link}\n` +
+      `Te pedimos por favor confirmar antes del lunes 02/11 para poder organizar los Pits de la mejor manera.\n` +
+      `¡Esperamos celebrar juntos! \u{2728}\n` +
+      `Un abrazo, Andrea (Mami de Giuliano) \u{2764}\u{FE0F}`;
+    const msg = encodeURIComponent(msgText);
 
     const telLimpio = formatearTelefono(item.telefono);
     const waButton = telLimpio
