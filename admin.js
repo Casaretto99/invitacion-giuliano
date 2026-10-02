@@ -170,10 +170,13 @@ function renderTablaTodos(lista) {
 
     const link = `${BASE_INVITATION_URL}?token=${encodeURIComponent(item.token)}`;
     const msg = encodeURIComponent(
-      `Hola\n` +
-      `Esta es tu invitacion: ${link}\n` +
-      `Favor confirmar asistencia antes del lunes 02/11\n` +
-      `Saludos.`
+      `¡Hola ${item.nombre}! 🏎️✨\n\n` +
+      `Te escribo con mucha alegría de parte de la familia para invitarte a celebrar el 2do añito de nuestro pequeño Giuliano 🥳🏁\n\n` +
+      `Queremos compartir con ustedes una tarde llena de emoción, juegos y mucha diversión. 🏆\n\n` +
+      `Ingresa a tu invitación digital aquí: 👇👇👇 ${link}\n\n` +
+      `Por favor, ayúdanos confirmando tu asistencia antes del lunes 02/11.\n\n` +
+      `¡Nos encantará contar con ustedes! ❤️\n\n` +
+      `Un abrazo con cariño, Sus Papis y Flia. 🏁`
     );
 
     const telLimpio = formatearTelefono(item.telefono);
@@ -258,11 +261,12 @@ function renderTablaPendientes(lista) {
 
     const link = `${BASE_INVITATION_URL}?token=${encodeURIComponent(item.token)}`;
     const msg = encodeURIComponent(
-      `Hola\n` +
-      `Paso para recordarte que tu invitacion esta pendiente de confirmar\n` +
-      `Esta es tu invitacion: ${link}\n` +
-      `Favor confirmar asistencia antes del lunes 02/11\n` +
-      `Saludos.`
+      `¡Hola ${item.nombre}! 🏎️❤️\n\n` +
+      `Paso a saludarte y recordarte que estamos ajustando los últimos detalles para la fiesta del 2do añito de Giuliano 🏁🥳\n\n` +
+      `Aún tenemos pendiente tu confirmación de asistencia. Puedes verificar y confirmar tu invitación aquí: 👇👇👇 ${link}\n\n` +
+      `Te pedimos por favor confirmar antes del lunes 02/11 para poder organizar los Pits de la mejor manera.\n\n` +
+      `¡Esperamos celebrar juntos! ✨\n\n` +
+      `Un abrazo, Andrea (Mami de Giuliano) ❤️`
     );
 
     const telLimpio = formatearTelefono(item.telefono);
