@@ -176,13 +176,13 @@ function renderTablaTodos(lista) {
       `Ingresa a tu invitación digital aquí: \u{1F447}\u{1F447}\u{1F447}\n` +
       `${link}\n` +
       `Por favor, ayúdanos confirmando tu asistencia antes del lunes 02/11.\n` +
-      `¡Nos encantará contar con ustedes! \u{2764}\u{FE0F}\n` +
+      `¡Nos encantará contar con ustedes! \u{2764}\n` +
       `Un abrazo con cariño, Sus Papis y Flia. \u{1F3C1}`;
     const msg = encodeURIComponent(msgText);
 
     const telLimpio = formatearTelefono(item.telefono);
     const waButton = telLimpio
-      ? `<a href="https://wa.me/${telLimpio}?text=${msg}" target="_blank" class="btn-wa">📲 Enviar Invitación</a>`
+      ? `<a href="https://api.whatsapp.com/send?phone=${telLimpio}&text=${msg}" target="_blank" class="btn-wa">📲 Enviar Invitación</a>`
       : `<span class="no-phone">Sin teléfono</span>`;
 
     const badgeEstado = getBadgeEstado(item.estado);
@@ -262,18 +262,18 @@ function renderTablaPendientes(lista) {
 
     const link = `${BASE_INVITATION_URL}?token=${encodeURIComponent(item.token)}`;
     const msgText =
-      `¡Hola ${item.nombre}! \u{1F3CE}\u{2764}\u{FE0F}\n` +
+      `¡Hola ${item.nombre}! \u{1F3CE}\u{2764}\n` +
       `Paso a saludarte y recordarte que estamos ajustando los últimos detalles para la fiesta del 2do añito de Giuliano \u{1F3C1}\u{1F973}\n` +
       `Aún tenemos pendiente tu confirmación de asistencia. Puedes verificar y confirmar tu invitación aquí: \u{1F447}\u{1F447}\u{1F447}\n` +
       `${link}\n` +
       `Te pedimos por favor confirmar antes del lunes 02/11 para poder organizar los Pits de la mejor manera.\n` +
       `¡Esperamos celebrar juntos! \u{2728}\n` +
-      `Un abrazo, Andrea (Mami de Giuliano) \u{2764}\u{FE0F}`;
+      `Un abrazo, Andrea (Mami de Giuliano) \u{2764}`;
     const msg = encodeURIComponent(msgText);
 
     const telLimpio = formatearTelefono(item.telefono);
     const waButton = telLimpio
-      ? `<a href="https://wa.me/${telLimpio}?text=${msg}" target="_blank" class="btn-wa btn-wa-recordatorio">📲 Enviar Recordatorio</a>`
+      ? `<a href="https://api.whatsapp.com/send?phone=${telLimpio}&text=${msg}" target="_blank" class="btn-wa btn-wa-recordatorio">📲 Enviar Recordatorio</a>`
       : `<span class="no-phone">Sin teléfono</span>`;
 
     html += `
